@@ -34,9 +34,12 @@ app.post("/generate", async (req, res) => {
         model: "dall-e-3",
       }),
     });
-
-    const aiData = await aiResponse.json();
-    const imageUrl = aiData.data[0].url;
+const aiData = await aiResponse.json();
+console.log("OpenAI response:", aiData); // <-- zum Testen
+if (!aiData.data || !aiData.data[0]) {
+  return res.status(500).json({ error: "Fehler beim Bildabruf von OpenAI", details: aiData });
+}
+const imageUrl = aiData.data[0].url;
 
     const uploadResponse = await cloudinary.uploader.upload(imageUrl, {
       folder: "machdeinbild",
