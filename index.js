@@ -28,8 +28,7 @@ app.post("/generate", async (req, res) => {
     Authorization: `Bearer ${process.env.OPENAI_API_KEY}`
   },
   body: JSON.stringify({
-    model: "dall-e-2",
-
+    model: "image-alpha-001",
     prompt: prompt,
     size: "1024x1024",
     response_format: "url"
