@@ -1,11 +1,13 @@
 
 const express = require("express");
+const cors = require("cors");
 const bodyParser = require("body-parser");
 const fetch = require("node-fetch");
 const cloudinary = require("cloudinary").v2;
 require("dotenv").config();
 
 const app = express();
+app.use(cors());
 app.use(bodyParser.json());
 
 cloudinary.config({
