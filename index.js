@@ -27,11 +27,13 @@ app.post("/generate", async (req, res) => {
         "Content-Type": "application/json",
         Authorization: `Bearer ${process.env.OPENAI_API_KEY}`,
       },
-      body: JSON.stringify({
-        prompt,
-        n: 1,
-        size: "1024x1024",
+            body: JSON.stringify({
         model: "dall-e-3",
+        prompt: prompt,
+        size: "1024x1024",
+        response_format: "url"
+      }),
+
       }),
     });
 const aiData = await aiResponse.json();
