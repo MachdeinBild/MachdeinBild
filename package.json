@@ -1,8 +1,8 @@
 
 {
   "name": "mach-dein-bild-backend",
-  "version": "1.0.0",
-  "description": "Backend für Bildgenerierung mit DALL·E und Cloudinary",
+  "version": "1.0.1",
+  "description": "Backend für Bildgenerierung mit DALL·E und Cloudinary (CORS aktiviert)",
   "main": "index.js",
   "scripts": {
     "start": "node index.js"
@@ -10,6 +10,7 @@
   "dependencies": {
     "body-parser": "^1.20.2",
     "cloudinary": "^2.2.0",
+    "cors": "^2.8.5",
     "dotenv": "^16.3.1",
     "express": "^4.18.2",
     "node-fetch": "^2.6.7"
