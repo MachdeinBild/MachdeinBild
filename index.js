@@ -21,40 +21,41 @@ app.post("/generate", async (req, res) => {
   if (!prompt) return res.status(400).json({ error: "No prompt provided" });
 
   try {
-   const aiResponse = await fetch("https://api.openai.com/v1/images/generations", {
-  method: "POST",
-  headers: {
-    "Content-Type": "application/json",
-    Authorization: `Bearer ${process.env.OPENAI_API_KEY}`
-  },
-  body: JSON.stringify({
-  model: "gpt-image-1",
-  prompt: prompt,
-  n: 1,
-  size: "1024x1024"
-})
+    const aiResponse = await fetch("https://api.openai.com/v1/images/generations", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${process.env.OPENAI_API_KEY}`
+      },
+      body: JSON.stringify({
+        model: "gpt-image-1",
+        prompt: prompt,
+        n: 1,
+        size: "1024x1024"
+      })
+    });
 
-  })
-});
+    const aiData = await aiResponse.json();
+    console.log("OpenAI response:", aiData);
 
-    
-const aiData = await aiResponse.json();
-console.log("OpenAI response:", aiData); // <-- zum Testen
-if (!aiData.data || !aiData.data[0]) {
-  return res.status(500).json({ error: "Fehler beim Bildabruf von OpenAI", details: aiData });
-}
-const imageUrl = aiData.data[0].url;
+    if (!aiData.data || !aiData.data[0]) {
+      return res.status(500).json({ error: "Fehler beim Bildabruf von OpenAI", details: aiData });
+    }
+
+    const imageUrl = aiData.data[0].url;
 
     const uploadResponse = await cloudinary.uploader.upload(imageUrl, {
       folder: "machdeinbild",
     });
 
     res.json({ imageUrl: uploadResponse.secure_url });
+
   } catch (err) {
-    console.error(err);
-    res.status(500).json({ error: "Image generation failed" });
+    console.error("Fehler im /generate:", err);
+    res.status(500).json({ error: "Image generation failed", details: err.message });
   }
 });
+
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
