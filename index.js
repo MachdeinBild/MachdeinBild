@@ -42,9 +42,9 @@ app.post("/generate", async (req, res) => {
       return res.status(500).json({ error: "Fehler beim Bildabruf von OpenAI", details: aiData });
     }
 
-    const imageUrl = aiData.data[0].url;
+   const base64 = aiData.data[0].b64_json;
+const uploadResponse = await cloudinary.uploader.upload(`data:image/png;base64,${base64}`, {
 
-    const uploadResponse = await cloudinary.uploader.upload(imageUrl, {
       folder: "machdeinbild",
     });
 
