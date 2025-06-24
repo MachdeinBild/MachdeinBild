@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="de">
 <head>
@@ -57,10 +56,39 @@
       line-height: 1.6;
     }
 
-    /* Style für alle Bereiche, die die gleiche Schrift und Farbe haben sollen */
-    section {
-      font-family: 'Roboto', sans-serif;
-      color: #333;
+    /* Animation für das Wandern der Bilder */
+    .gallery-wrapper {
+      display: flex;
+      overflow: hidden;
+      width: 100%;
+      justify-content: flex-start;
+      animation: slideLeftRight 20s linear infinite;
+    }
+
+    @keyframes slideLeftRight {
+      0% {
+        transform: translateX(0);
+      }
+      50% {
+        transform: translateX(-100%);
+      }
+      100% {
+        transform: translateX(0);
+      }
+    }
+
+    .image-container {
+      flex: 0 0 auto;
+      width: 20%;
+      margin-right: 10px;
+      transition: transform 0.5s ease-in-out;
+    }
+
+    .image-container img {
+      width: 100%;
+      height: auto;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     }
 
     footer {
@@ -68,48 +96,6 @@
       color: white;
       text-align: center;
       padding: 20px;
-    }
-
-    /* Kontaktformular */
-    #contactForm {
-      margin-top: 50px;
-      padding: 40px;
-      background-color: #fff;
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-      border-radius: 8px;
-    }
-
-    #contactForm input, #contactForm textarea {
-      width: 80%;
-      padding: 1rem;
-      margin-bottom: 1rem;
-      font-size: 1rem;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-    }
-
-    #contactForm button {
-      width: 80%;
-      padding: 1rem;
-      background-color: #0078d4;
-      color: white;
-      border: none;
-      cursor: pointer;
-      border-radius: 5px;
-    }
-
-    /* Beispiel-Produkt im Shop */
-    #shopPreview .product {
-      display: inline-block;
-      width: 30%;
-      text-align: center;
-      margin: 10px;
-    }
-
-    #shopPreview img {
-      width: 80%;
-      height: auto;
-      border-radius: 10px;
     }
 
   </style>
@@ -140,6 +126,29 @@
       <button type="submit">Bild generieren</button>
     </form>
     <div id="preview"></div>
+  </section>
+
+  <!-- Bildergalerie mit Wandereffekt -->
+  <section id="image-gallery">
+    <h2>Unsere kreativen Vorschau-Bilder</h2>
+    <div class="gallery-wrapper">
+      <div class="image-container">
+        <img src="https://res.cloudinary.com/dntk0kj6v/image/upload/v1750762679/74ef7367-f4fd-4b74-bfc1-07ce1f627fd9_nhw6dm.png" alt="Beispiel 1">
+      </div>
+      <div class="image-container">
+        <img src="https://res.cloudinary.com/dntk0kj6v/image/upload/v1750762679/30c72bd7-0777-40f6-8408-de8348f9fce8_ennrlj.png" alt="Beispiel 2">
+      </div>
+      <!-- Hier wird das dritte Bild ersetzt -->
+      <div class="image-container">
+        <img src="https://res.cloudinary.com/dntk0kj6v/image/upload/v1750762679/6d0fb302-8387-40a7-898e-e3802dd76ca7_alhfsu.png" alt="Beispiel 3">
+      </div>
+      <div class="image-container">
+        <img src="https://res.cloudinary.com/dntk0kj6v/image/upload/v1750628002/machdeinbild/vosxygz8r6kfrb9ptb8t.png" alt="Beispiel 4">
+      </div>
+      <div class="image-container">
+        <img src="https://res.cloudinary.com/dntk0kj6v/image/upload/v1750624914/machdeinbild/jyohsmetvf5p31tvbqm5.png" alt="Beispiel 5">
+      </div>
+    </div>
   </section>
 
   <!-- FAQ -->
@@ -178,7 +187,7 @@
       <button>Kaufen</button>
     </div>
     <div class="product">
-      <img src="https://res.cloudinary.com/dntk0kj6v/image/upload/v1750762679/6d0fb302-8387-40a7-898e-e3802dd76ca7_alhfsu.png" alt="Produkt 3">
+      <img src="https://via.placeholder.com/300x200" alt="Produkt 3">
       <p>Produkt 3</p>
       <button>Kaufen</button>
     </div>
@@ -230,6 +239,7 @@
 
 </body>
 </html>
+
 
 
 
