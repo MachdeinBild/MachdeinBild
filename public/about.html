@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="de">
 <head>
@@ -42,20 +43,54 @@
     section {
       padding: 60px 40px;
       text-align: center;
+      max-width: 1200px;
+      margin: 0 auto;
     }
 
     section h2 {
       font-size: 2rem;
       color: #333;
       margin-bottom: 20px;
+      font-weight: 700;
     }
 
     section p {
       color: #555;
       font-size: 1.1rem;
       line-height: 1.6;
-      max-width: 800px;
-      margin: 0 auto;
+      margin-bottom: 30px;
+    }
+
+    .about-block {
+      display: flex;
+      justify-content: space-around;
+      margin-bottom: 40px;
+    }
+
+    .about-item {
+      width: 30%;
+      background-color: #fff;
+      padding: 20px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      border-radius: 10px;
+      text-align: center;
+    }
+
+    .about-item h3 {
+      font-size: 1.5rem;
+      color: #333;
+      margin-bottom: 15px;
+    }
+
+    .about-item p {
+      font-size: 1rem;
+      color: #555;
+    }
+
+    .about-item img {
+      width: 50px;
+      height: 50px;
+      margin-bottom: 20px;
     }
 
     footer {
@@ -64,7 +99,6 @@
       text-align: center;
       padding: 20px;
     }
-
   </style>
 </head>
 <body>
@@ -72,6 +106,7 @@
     <img src="https://res.cloudinary.com/dntk0kj6v/image/upload/v1750767227/Logo1_qdtgt9.png" alt="MachDeinBild Logo">
     <nav>
       <a href="index.html">Startseite</a>
+      <a href="about.html">Über Uns</a>
       <a href="shop.html">Shop</a>
       <a href="contact.html">Kontakt</a>
       <a href="faq.html">FAQ</a>
@@ -81,33 +116,36 @@
 
   <section>
     <h2>Über MachDeinBild</h2>
-    <p>
-      Willkommen bei **MachDeinBild**, der ultimativen Plattform für kreative Köpfe, die ihre eigenen **einzigartigen Kunstwerke** mit nur wenigen Klicks erstellen möchten! 
-      Hast du jemals von einer Vision geträumt, die du in ein Bild verwandeln möchtest? Eine Idee, die du einfach nicht in Worte fassen kannst, aber sie in deinem Kopf lebendig ist? 
-      Nun, wir bei MachDeinBild glauben, dass jeder Mensch ein Künstler ist – und **wir machen es dir leicht, dieser Künstler zu werden**.
-    </p>
-    <p>
-      **MachDeinBild** bietet dir die Möglichkeit, **kreative Meisterwerke** zu erschaffen, die du dir nie hättest vorstellen können – und das alles mit der **Kraft von Künstlicher Intelligenz**. 
-      Unsere **fortschrittliche Technologie** nimmt deine **Textbeschreibungen** und verwandelt sie in atemberaubende Bilder, die so lebendig und detailreich sind, dass du sie fast anfassen kannst. Ob du nun eine digitale Kunstgalerie erstellen möchtest, ein personalisiertes Geschenk suchst oder einfach nur Spaß daran hast, deine Ideen zu visualisieren – **MachDeinBild** ist die Lösung.
-    </p>
-    <p>
-      **Was erwartet dich bei uns?** Ganz einfach:
-      - **Unbegrenzte kreative Freiheit**: Beschreibe, was du dir vorstellst, und wir setzen es für dich um – ganz ohne Vorkenntnisse in Design oder Kunst.
-      - **Über 1000 zufriedene Kunden**: Ja, du hast richtig gehört! Seit unserer Gründung haben wir bereits **hunderte von begeisterten Nutzern** dabei geholfen, ihre Visionen zum Leben zu erwecken. **Kunden weltweit schwören auf unsere Plattform!** Sei auch du ein Teil dieser Erfolgsgeschichte und erlebe, warum uns **so viele Künstler und Kreative vertrauen**.
-      - **Benutzerfreundlichkeit auf höchstem Niveau**: Unsere Plattform ist so einfach zu bedienen, dass du in nur wenigen Minuten dein erstes Bild erstellen kannst. **Keine technischen Hürden**, keine komplizierten Tutorials – einfach einsteigen und kreativ werden!
-    </p>
-    <p>
-      **Warum MachDeinBild?**
-      - **Innovation**: Wir bieten die neueste Technologie, die deine Ideen in brillante Kunst verwandelt.
-      - **Zufriedenheit garantiert**: Unsere Kunden sind begeistert von den unglaublichen Ergebnissen und der Benutzerfreundlichkeit unserer Plattform.
-      - **Kundensupport rund um die Uhr**: Unser engagiertes Team steht dir jederzeit zur Seite, um sicherzustellen, dass du das Beste aus deiner kreativen Reise herausholst.
-    </p>
-    <p>
-      **MachDeinBild** ist mehr als nur eine Plattform – es ist eine Bewegung, die Kreativität **für jedermann zugänglich** macht. **Bereit, dein erstes Meisterwerk zu erstellen?** Trete noch heute unserer **Kunstgemeinschaft** bei und erlebe, wie deine Ideen auf magische Weise zum Leben erwachen. Du bist nur **ein paar Klicks** davon entfernt, deinen inneren Künstler zu entfalten und in eine Welt voller unbegrenzter kreativer Möglichkeiten einzutauchen!
-    </p>
-    <p>
-      **Kreativität kennt keine Grenzen.** Sei dabei – **mit MachDeinBild**!
-    </p>
+    <p>Willkommen bei **MachDeinBild** – der kreativen Plattform, auf der du deine eigenen einzigartigen Bilder mit nur wenigen Klicks erstellen kannst. Unsere fortschrittliche Technologie hilft dir dabei, deine Visionen in beeindruckende Kunstwerke zu verwandeln!</p>
+  
+    <!-- Abschnitt 1: Unser Ziel -->
+    <div class="about-block">
+      <div class="about-item">
+        <img src="https://via.placeholder.com/50" alt="Ziel Icon">
+        <h3>Unser Ziel</h3>
+        <p>Unsere Mission ist es, jedem die Möglichkeit zu geben, seine kreative Seite auszuleben und außergewöhnliche Kunstwerke zu erschaffen. Mit unserer einfachen Benutzeroberfläche und KI-unterstützten Technologie kannst du in wenigen Minuten fantastische Bilder erstellen!</p>
+      </div>
+      
+      <!-- Abschnitt 2: Unsere Technologie -->
+      <div class="about-item">
+        <img src="https://via.placeholder.com/50" alt="Technologie Icon">
+        <h3>Unsere Technologie</h3>
+        <p>Wir nutzen fortschrittliche Künstliche Intelligenz, um deine Textbeschreibungen in atemberaubende Bilder umzuwandeln. Unsere Technologie erkennt deine kreativen Ideen und setzt sie in Sekundenbruchteilen in visuelle Kunst um. Du musst kein Künstler sein, um beeindruckende Werke zu schaffen!</p>
+      </div>
+      
+      <!-- Abschnitt 3: Unsere Kunden -->
+      <div class="about-item">
+        <img src="https://via.placeholder.com/50" alt="Kunden Icon">
+        <h3>Unsere Kunden</h3>
+        <p>Mehr als **1000 zufriedene Kunden** haben bereits ihre einzigartigen Bilder mit uns erstellt. Egal ob für persönliche Projekte, Geschenke oder kommerzielle Zwecke – unsere Plattform bietet unendliche kreative Möglichkeiten!</p>
+      </div>
+    </div>
+
+    <!-- Abschnitt 4: Deine Kreativität entfalten -->
+    <div class="about-block">
+      <h2>Entfalte deine Kreativität</h2>
+      <p>Mit **MachDeinBild** kannst du ohne Vorkenntnisse in der Kunst Weltklasse-Bilder erstellen. Die Möglichkeiten sind endlos – von Landschaften bis hin zu abstrakten Kunstwerken, von klassischen Portraits bis zu futuristischen Designs. Erschaffe deine Vision und teile sie mit der Welt!</p>
+    </div>
   </section>
 
   <footer>
