@@ -56,7 +56,6 @@
       line-height: 1.6;
     }
 
-    /* Animation für das Wandern der Bilder */
     .gallery-wrapper {
       display: flex;
       overflow: hidden;
@@ -66,15 +65,9 @@
     }
 
     @keyframes slideLeftRight {
-      0% {
-        transform: translateX(0);
-      }
-      50% {
-        transform: translateX(-100%);
-      }
-      100% {
-        transform: translateX(0);
-      }
+      0% { transform: translateX(0); }
+      50% { transform: translateX(-100%); }
+      100% { transform: translateX(0); }
     }
 
     .image-container {
@@ -104,21 +97,21 @@
   <header>
     <img src="https://res.cloudinary.com/dntk0kj6v/image/upload/v1750767227/Logo1_qdtgt9.png" alt="MachDeinBild Logo">
     <nav>
-      <a href="#about">Über Uns</a>
-      <a href="#shop">Shop</a>
-      <a href="#contact">Kontakt</a>
-      <a href="#faq">FAQ</a>
-      <a href="#imprint">Impressum</a>
+      <a href="index.html">Startseite</a> <!-- Link zur Startseite -->
+      <a href="about.html">Über Uns</a> <!-- Link zur About-Seite -->
+      <a href="shop.html">Shop</a> <!-- Link zur Shop-Seite -->
+      <a href="contact.html">Kontakt</a> <!-- Link zur Kontakt-Seite -->
+      <a href="faq.html">FAQ</a> <!-- Link zur FAQ-Seite -->
+      <a href="imprint.html">Impressum</a> <!-- Link zur Impressum-Seite -->
     </nav>
   </header>
 
-  <!-- Über Uns -->
+  <!-- Hauptbereich: Beschreibung, Promptfeld und Galerie -->
   <section id="about">
     <h2>Über MachDeinBild</h2>
-    <p>Willkommen bei MachDeinBild – der kreativen Plattform, auf der du deine eigenen einzigartigen Bilder mit nur wenigen Klicks erstellen kannst. Unsere fortschrittliche Technologie hilft dir dabei, deine Visionen in beeindruckende Kunstwerke zu verwandeln!</p>
+    <p>Willkommen bei **MachDeinBild** – der kreativen Plattform, auf der du deine eigenen einzigartigen Bilder mit nur wenigen Klicks erstellen kannst. Unsere fortschrittliche Technologie hilft dir dabei, deine Visionen in beeindruckende Kunstwerke zu verwandeln!</p>
   </section>
 
-  <!-- Generieren-Feld -->
   <section id="generateImage">
     <h2>Generiere dein Bild</h2>
     <form id="promptForm">
@@ -138,7 +131,6 @@
       <div class="image-container">
         <img src="https://res.cloudinary.com/dntk0kj6v/image/upload/v1750762679/30c72bd7-0777-40f6-8408-de8348f9fce8_ennrlj.png" alt="Beispiel 2">
       </div>
-      <!-- Hier wird das dritte Bild ersetzt -->
       <div class="image-container">
         <img src="https://res.cloudinary.com/dntk0kj6v/image/upload/v1750762679/6d0fb302-8387-40a7-898e-e3802dd76ca7_alhfsu.png" alt="Beispiel 3">
       </div>
@@ -149,58 +141,6 @@
         <img src="https://res.cloudinary.com/dntk0kj6v/image/upload/v1750624914/machdeinbild/jyohsmetvf5p31tvbqm5.png" alt="Beispiel 5">
       </div>
     </div>
-  </section>
-
-  <!-- FAQ -->
-  <section id="faq">
-    <h2>FAQ</h2>
-    <p><strong>Was ist MachDeinBild?</strong><br>MachDeinBild ist eine kreative Plattform, die es dir ermöglicht, eigene Bilder aus Textbeschreibungen zu erstellen und zu personalisieren.</p>
-    <p><strong>Wie lange dauert es, ein Bild zu generieren?</strong><br>Die Bildgenerierung dauert in der Regel nur wenige Sekunden, abhängig von der Komplexität der Anfrage.</p>
-    <p><strong>Kann ich die generierten Bilder kaufen?</strong><br>Ja, du kannst deine Bilder kaufen, herunterladen und für persönliche oder kommerzielle Zwecke verwenden.</p>
-  </section>
-
-  <!-- Kontaktformular -->
-  <section id="contact">
-    <h2>Kontakt</h2>
-    <div id="contactForm">
-      <form action="mailto:deineemail@domain.com" method="post" enctype="text/plain">
-        <input type="text" name="name" placeholder="Dein Name" required />
-        <input type="email" name="email" placeholder="Deine E-Mail" required />
-        <textarea name="message" placeholder="Deine Nachricht" required></textarea>
-        <button type="submit">Nachricht senden</button>
-      </form>
-    </div>
-  </section>
-
-  <!-- Shop Vorschau -->
-  <section id="shopPreview">
-    <h2>Shop-Vorschau</h2>
-    <p>Dies ist eine Vorschau, wie der Shop später aussehen könnte.</p>
-    <div class="product">
-      <img src="https://via.placeholder.com/300x200" alt="Produkt 1">
-      <p>Produkt 1</p>
-      <button>Kaufen</button>
-    </div>
-    <div class="product">
-      <img src="https://via.placeholder.com/300x200" alt="Produkt 2">
-      <p>Produkt 2</p>
-      <button>Kaufen</button>
-    </div>
-    <div class="product">
-      <img src="https://via.placeholder.com/300x200" alt="Produkt 3">
-      <p>Produkt 3</p>
-      <button>Kaufen</button>
-    </div>
-  </section>
-
-  <!-- Impressum -->
-  <section id="imprint">
-    <h2>Impressum</h2>
-    <p>MachDeinBild - Deine kreative Bildplattform</p>
-    <p>Adresse: Musterstraße 123, 12345 Musterstadt</p>
-    <p>Telefon: +49 123 456 789</p>
-    <p>E-Mail: kontakt@machdeinbild.com</p>
-    <p>USt-ID: DE123456789</p>
   </section>
 
   <footer>
@@ -239,6 +179,7 @@
 
 </body>
 </html>
+
 
 
 
