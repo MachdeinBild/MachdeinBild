@@ -25,7 +25,7 @@
     }
 
     header img {
-      height: 40px;
+      height: 100px; /* Vergrößert das Logo */
     }
 
     nav a {
@@ -133,6 +133,56 @@
       padding: 20px;
     }
 
+    /* Kontaktformular */
+    #contactForm {
+      margin-top: 50px;
+      padding: 40px;
+      background-color: #fff;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      border-radius: 8px;
+    }
+
+    #contactForm input, #contactForm textarea {
+      width: 80%;
+      padding: 1rem;
+      margin-bottom: 1rem;
+      font-size: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    #contactForm button {
+      width: 80%;
+      padding: 1rem;
+      background-color: #0078d4;
+      color: white;
+      border: none;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+
+    #shopPreview {
+      margin-top: 50px;
+      padding: 40px;
+      background-color: #fff;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      border-radius: 8px;
+    }
+
+    /* Beispiel-Produkt im Shop */
+    #shopPreview .product {
+      display: inline-block;
+      width: 30%;
+      text-align: center;
+      margin: 10px;
+    }
+
+    #shopPreview img {
+      width: 80%;
+      height: auto;
+      border-radius: 10px;
+    }
+
   </style>
 </head>
 <body>
@@ -184,6 +234,48 @@
     </div>
   </section>
 
+  <!-- FAQ -->
+  <section id="faq">
+    <h2>FAQ</h2>
+    <p><strong>Was ist MachDeinBild?</strong><br>MachDeinBild ist eine kreative Plattform, die es dir ermöglicht, eigene Bilder aus Textbeschreibungen zu erstellen und zu personalisieren.</p>
+    <p><strong>Wie lange dauert es, ein Bild zu generieren?</strong><br>Die Bildgenerierung dauert in der Regel nur wenige Sekunden, abhängig von der Komplexität der Anfrage.</p>
+    <p><strong>Kann ich die generierten Bilder kaufen?</strong><br>Ja, du kannst deine Bilder kaufen, herunterladen und für persönliche oder kommerzielle Zwecke verwenden.</p>
+  </section>
+
+  <!-- Kontaktformular -->
+  <section id="contact">
+    <h2>Kontakt</h2>
+    <div id="contactForm">
+      <form action="mailto:deineemail@domain.com" method="post" enctype="text/plain">
+        <input type="text" name="name" placeholder="Dein Name" required />
+        <input type="email" name="email" placeholder="Deine E-Mail" required />
+        <textarea name="message" placeholder="Deine Nachricht" required></textarea>
+        <button type="submit">Nachricht senden</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Shop Vorschau -->
+  <section id="shopPreview">
+    <h2>Shop-Vorschau</h2>
+    <p>Dies ist eine Vorschau, wie der Shop später aussehen könnte.</p>
+    <div class="product">
+      <img src="https://via.placeholder.com/300x200" alt="Produkt 1">
+      <p>Produkt 1</p>
+      <button>Kaufen</button>
+    </div>
+    <div class="product">
+      <img src="https://via.placeholder.com/300x200" alt="Produkt 2">
+      <p>Produkt 2</p>
+      <button>Kaufen</button>
+    </div>
+    <div class="product">
+      <img src="https://via.placeholder.com/300x200" alt="Produkt 3">
+      <p>Produkt 3</p>
+      <button>Kaufen</button>
+    </div>
+  </section>
+
   <footer>
     <p>&copy; 2025 MachDeinBild. Alle Rechte vorbehalten.</p>
   </footer>
@@ -220,6 +312,7 @@
 
 </body>
 </html>
+
 
 
 
