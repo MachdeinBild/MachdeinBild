@@ -56,6 +56,7 @@
       line-height: 1.6;
     }
 
+    /* Galerie für Endlosschleife */
     .gallery-wrapper {
       display: flex;
       overflow: hidden;
@@ -86,6 +87,11 @@
       height: auto;
       border-radius: 10px;
       box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Doppelte Galerie */
+    .gallery-wrapper .image-container {
+      width: 20%;
     }
 
     footer {
@@ -129,6 +135,24 @@
   <section id="image-gallery">
     <h2>Unsere kreativen Vorschau-Bilder</h2>
     <div class="gallery-wrapper">
+      <!-- Erste Reihe von Bildern -->
+      <div class="image-container">
+        <img src="https://res.cloudinary.com/dntk0kj6v/image/upload/v1750762679/74ef7367-f4fd-4b74-bfc1-07ce1f627fd9_nhw6dm.png" alt="Beispiel 1">
+      </div>
+      <div class="image-container">
+        <img src="https://res.cloudinary.com/dntk0kj6v/image/upload/v1750762679/30c72bd7-0777-40f6-8408-de8348f9fce8_ennrlj.png" alt="Beispiel 2">
+      </div>
+      <div class="image-container">
+        <img src="https://res.cloudinary.com/dntk0kj6v/image/upload/v1750762679/6d0fb302-8387-40a7-898e-e3802dd76ca7_alhfsu.png" alt="Beispiel 3">
+      </div>
+      <div class="image-container">
+        <img src="https://res.cloudinary.com/dntk0kj6v/image/upload/v1750628002/machdeinbild/vosxygz8r6kfrb9ptb8t.png" alt="Beispiel 4">
+      </div>
+      <div class="image-container">
+        <img src="https://res.cloudinary.com/dntk0kj6v/image/upload/v1750624914/machdeinbild/jyohsmetvf5p31tvbqm5.png" alt="Beispiel 5">
+      </div>
+      
+      <!-- Zweite Reihe von Bildern (Wiederholung der ersten Reihe für nahtlose Animation) -->
       <div class="image-container">
         <img src="https://res.cloudinary.com/dntk0kj6v/image/upload/v1750762679/74ef7367-f4fd-4b74-bfc1-07ce1f627fd9_nhw6dm.png" alt="Beispiel 1">
       </div>
@@ -183,6 +207,7 @@
 
 </body>
 </html>
+
 
 
 
