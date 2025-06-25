@@ -71,13 +71,13 @@
         transform: translateX(0);
       }
       100% {
-        transform: translateX(-100%);
+        transform: translateX(-50%); /* Verschiebt die Galerie um 50% ihrer Breite */
       }
     }
 
     .image-container {
       flex: 0 0 auto;
-      width: 20%;
+      width: 20%; /* Jedes Bild nimmt 20% der Gesamtbreite ein */
       margin-right: 10px;
       transition: transform 0.5s ease-in-out;
     }
@@ -87,11 +87,6 @@
       height: auto;
       border-radius: 10px;
       box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    }
-
-    /* Doppelte Galerie */
-    .gallery-wrapper .image-container {
-      width: 20%;
     }
 
     footer {
@@ -207,6 +202,7 @@
 
 </body>
 </html>
+
 
 
 
