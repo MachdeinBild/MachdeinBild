@@ -59,9 +59,7 @@
     /* Galerie für Endlosschleife */
     .gallery-wrapper {
       display: flex;
-      overflow: hidden;
       width: 100%;
-      justify-content: flex-start;
       animation: slideLeftRight 20s linear infinite;
     }
 
@@ -71,7 +69,7 @@
         transform: translateX(0);
       }
       100% {
-        transform: translateX(-50%); /* Verschiebt die Galerie um 50% ihrer Breite */
+        transform: translateX(-50%); /* Verschiebt die Galerie um 50% der Breite */
       }
     }
 
@@ -79,7 +77,6 @@
       flex: 0 0 auto;
       width: 20%; /* Jedes Bild nimmt 20% der Gesamtbreite ein */
       margin-right: 10px;
-      transition: transform 0.5s ease-in-out;
     }
 
     .image-container img {
@@ -202,6 +199,7 @@
 
 </body>
 </html>
+
 
 
 
