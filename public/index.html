@@ -178,30 +178,36 @@
       preview.innerHTML = "Bild wird generiert...";
 
       try {
+        // API-Aufruf
         const response = await fetch("https://machdeinbild.onrender.com/generate", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({ prompt })
         });
 
+        // Überprüfen, ob der API-Aufruf erfolgreich war
+        if (!response.ok) {
+          throw new Error(`Fehler beim Abrufen des Bildes: ${response.statusText}`);
+        }
+
+        // Antwort der API verarbeiten
         const data = await response.json();
         if (data.imageUrl) {
           preview.innerHTML = `<img src="${data.imageUrl}" alt="Generiertes Bild"/>`;
         } else {
           preview.innerHTML = "Fehler: Kein Bild erhalten.";
+          console.error("Keine Bild-URL von der API erhalten", data);
         }
       } catch (err) {
+        // Fehlerbehandlung
         preview.innerHTML = "Ein Fehler ist aufgetreten.";
-        console.error(err);
+        console.error("Fehler beim Generieren des Bildes:", err);
       }
     });
   </script>
 
 </body>
 </html>
-
-
-
 
 
 
