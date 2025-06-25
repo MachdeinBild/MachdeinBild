@@ -40,8 +40,8 @@ app.post("/generate", async (req, res) => {
       body: JSON.stringify({
         prompt,
         n: 1,
-        size: "256x256",
-        model: "dall-e-3",
+        size: "512x512",
+        model: "dall-e-2",
       }),
     });
 
