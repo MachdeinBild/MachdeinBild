@@ -86,11 +86,19 @@
       box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     }
 
-    /* Neue Regel: generiertes Bild auf 50% Größe setzen */
-    #preview img {
-      width: 100%; /* Bildgröße des generierten Bildes auf 50% der Breite setzen */
-      height: auto;
+    /* Anpassung des Containers für das generierte Bild */
+    #preview {
+      display: flex;
+      justify-content: center;  /* Zentriert das Bild horizontal */
+      align-items: center;      /* Zentriert das Bild vertikal */
+      height: 400px;            /* Setze die Höhe des Containers, um das Bild zu begrenzen */
       margin-top: 20px;
+    }
+
+    /* Anpassung des generierten Bildes */
+    #preview img {
+      max-width: 50%;    /* Setzt die maximale Breite des Bildes auf 50% der ursprünglichen Größe */
+      height: auto;      /* Die Höhe wird automatisch angepasst, um das Seitenverhältnis zu bewahren */
     }
 
     footer {
@@ -207,6 +215,7 @@
 
 </body>
 </html>
+
 
 
 
