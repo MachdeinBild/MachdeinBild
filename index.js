@@ -37,7 +37,7 @@ app.post("/generate", async (req, res) => {
         prompt: req.body.prompt, // Das Prompt für die Bildgenerierung
         n: 1,                    // Anzahl der zu generierenden Bilder
         size: "1024x1024",       // Größe des Bildes
-        model: "dall-e-3",       // Das verwendete Modell (z.B. DALL-E 3)
+        model: "dall-e-2",       // Das verwendete Modell (z.B. DALL-E 3)
       }),
     });
 
