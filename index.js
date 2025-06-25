@@ -3,16 +3,26 @@ const cors = require("cors");
 const bodyParser = require("body-parser");
 const fetch = require("node-fetch");
 const cloudinary = require("cloudinary").v2;
+const path = require("path"); // Für das Servieren von statischen Dateien
 require("dotenv").config();
 
 const app = express();
 app.use(cors());
 app.use(bodyParser.json());
 
+// Cloudinary-Konfiguration
 cloudinary.config({
   cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
   api_key: process.env.CLOUDINARY_API_KEY,
   api_secret: process.env.CLOUDINARY_API_SECRET,
+});
+
+// Statische Dateien (wie index.html, CSS, JS) aus dem Ordner 'public' servieren
+app.use(express.static(path.join(__dirname, 'public')));
+
+// Route für den Root-Pfad, der die index.html ausliefert
+app.get("/", (req, res) => {
+  res.sendFile(path.join(__dirname, "public", "index.html"));
 });
 
 app.post("/generate", async (req, res) => {
@@ -68,3 +78,4 @@ app.post("/generate", async (req, res) => {
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => console.log(`Server läuft auf Port ${PORT}`));
+
