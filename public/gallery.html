@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <title>Galerie – MachDeinBild</title>
+  <style>
+    body { font-family: Arial, sans-serif; max-width: 1200px; margin: 40px auto; padding: 0 20px; }
+    h1 { text-align: center; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 20px; }
+    .grid img { width: 100%; border-radius: 8px; cursor: pointer; }
+  </style>
+</head>
+<body>
+  <h1>Galerie</h1>
+  <div class="grid" id="gallery"></div>
+
+  <script>
+    fetch("/api/gallery")
+      .then(res => res.json())
+      .then(data => {
+        const gallery = document.getElementById("gallery");
+        data.forEach(img => {
+          const el = document.createElement("img");
+          el.src = img.secure_url;
+          el.onclick = () => {
+            localStorage.setItem("generatedImage", img.secure_url);
+            alert("Bild übernommen! Jetzt kannst du es im Shop benutzen.");
+            window.location.href = "shop.html";
+          };
+          gallery.appendChild(el);
+        });
+      });
+  </script>
+</body>
+</html>
