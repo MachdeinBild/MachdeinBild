@@ -97,13 +97,18 @@
     const sizeSelect = document.getElementById("size");
     const nextBtn = document.getElementById("nextBtn");
 
-    // Generiertes Bild laden
-    const imageUrl = localStorage.getItem("generatedImage");
-    if (!imageUrl) {
-      alert("Kein Bild gefunden, zurück zur Startseite!");
-      window.location.href = "index.html";
-    } else {
+    // Cloudinary-Platzhalter URL
+    const placeholderUrl = "https://res.cloudinary.com/dntk0kj6v/image/upload/v1751141888/Platzhalter_sgzfyc.png";
+
+    // Versuche generiertes Bild zu laden
+    let imageUrl = localStorage.getItem("generatedImage");
+
+    if (imageUrl) {
       preview.src = imageUrl;
+    } else {
+      preview.src = placeholderUrl;
+      // Fallback: speichere den Platzhalter als generiertes Bild
+      localStorage.setItem("generatedImage", placeholderUrl);
     }
 
     // Produkt ändern → Mockup-Hintergrund wechseln
@@ -120,7 +125,6 @@
       const product = productSelect.value;
       const size = sizeSelect.value;
 
-      // Printful-Variant-ID je nach Produkt + Größe
       let variantId = 0;
 
       if (product === "poster") {
@@ -139,11 +143,13 @@
 
       alert(`Du hast gewählt: ${product} in ${size} (Variant-ID ${variantId})`);
 
-      // Später: window.location.href = "checkout.html";
+      // Weiterleitung zu Checkout kommt später
+      // window.location.href = "checkout.html";
     });
   </script>
 
 </body>
 </html>
+
 
 
