@@ -2,169 +2,133 @@
 <html lang="de">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Shop - MachDeinBild</title>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <title>MachDeinBild - Shop</title>
   <style>
     body {
-      font-family: 'Roboto', sans-serif;
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      background-color: #f4f4f9;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background: #f5f5f7;
+      color: #1d1d1f;
+      max-width: 800px;
+      margin: 40px auto;
+      padding: 0 20px;
     }
 
     header {
-      background-color: white;
-      padding: 20px 40px;
       display: flex;
-      justify-content: space-between;
       align-items: center;
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      margin-bottom: 40px;
     }
 
     header img {
-      height: 150px; /* Vergrößertes Logo */
+      height: 50px;
+      margin-right: 20px;
     }
 
-    nav a {
-      margin: 0 15px;
-      text-decoration: none;
-      color: #333;
-      font-weight: 500;
-      transition: color 0.3s ease;
+    header h1 {
+      font-size: 1.8rem;
+      margin: 0;
     }
 
-    nav a:hover {
-      color: #0078d4;
+    h2 {
+      margin-top: 0;
     }
 
-    section {
-      padding: 60px 40px;
-      text-align: center;
+    label {
+      display: block;
+      margin-top: 15px;
+      margin-bottom: 5px;
+      font-weight: 600;
     }
 
-    section h2 {
-      font-size: 2rem;
-      color: #333;
-      margin-bottom: 20px;
-    }
-
-    section p {
-      color: #555;
-      font-size: 1.1rem;
-      line-height: 1.6;
-      max-width: 800px;
-      margin: 0 auto;
-    }
-
-    /* Style für Shop-Vorschau */
-    .shop-preview {
-      display: flex;
-      justify-content: space-around;
-      flex-wrap: wrap;
-      gap: 20px;
-      margin-top: 20px;
-    }
-
-    .product {
-      width: 30%;
-      text-align: center;
-      background-color: #fff;
-      padding: 20px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-      border-radius: 10px;
-    }
-
-    .product img {
-      width: 80%;
-      height: auto;
+    input, textarea {
+      width: 100%;
+      padding: 12px 15px;
+      border: 1px solid #ccc;
       border-radius: 8px;
-      margin-bottom: 15px;
-    }
-
-    .product h3 {
-      font-size: 1.5rem;
-      color: #333;
-      margin-bottom: 10px;
-    }
-
-    .product p {
-      font-size: 1.2rem;
-      color: #0078d4;
-      margin-bottom: 10px;
-    }
-
-    .product button {
-      padding: 10px 20px;
       font-size: 1rem;
-      background-color: #0078d4;
-      color: white;
+      margin-bottom: 15px;
+      background: #fff;
+    }
+
+    button {
+      width: 100%;
+      padding: 15px;
+      background: #0071e3;
+      color: #fff;
       border: none;
+      border-radius: 10px;
+      font-size: 1rem;
       cursor: pointer;
-      border-radius: 5px;
+      transition: background 0.2s ease;
     }
 
-    .product button:hover {
-      background-color: #005fa3;
+    button:hover {
+      background: #005bb5;
     }
 
-    footer {
-      background-color: #333;
-      color: white;
-      text-align: center;
-      padding: 20px;
+    img#preview {
+      width: 100%;
+      max-width: 100%;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      display: none;
+      margin: 20px 0;
     }
 
+    .section {
+      background: #fff;
+      border-radius: 12px;
+      padding: 30px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.05);
+      margin-bottom: 30px;
+    }
+
+    @media(max-width: 600px) {
+      body {
+        margin: 20px auto;
+        padding: 0 15px;
+      }
+    }
   </style>
 </head>
 <body>
+
   <header>
-    <img src="https://res.cloudinary.com/dntk0kj6v/image/upload/v1750767227/Logo1_qdtgt9.png" alt="MachDeinBild Logo">
-    <nav>
-      <a href="index.html">Startseite</a>
-      <a href="about.html">Über Uns</a>
-      <a href="contact.html">Kontakt</a>
-      <a href="faq.html">FAQ</a>
-      <a href="imprint.html">Impressum</a>
-    </nav>
+    <img src="logo.png" alt="MachDeinBild Logo" />
+    <h1>Mach Dein Bild</h1>
   </header>
 
-  <!-- Shop Vorschau -->
-  <section>
-    <h2>Shop-Vorschau</h2>
-    <p>Hier ist eine Vorschau, wie der Shop auf MachDeinBild nachher aussehen wird. In Zukunft wirst du in der Lage sein, deine generierten Bilder zu kaufen, herunterzuladen und für verschiedene Zwecke zu nutzen. Bleib gespannt auf die bald kommende Möglichkeit, deine Kunstwerke direkt zu erwerben!</p>
+  <div class="section">
+    <label for="prompt">Dein Bild-Prompt:</label>
+    <textarea id="prompt" rows="3" placeholder="Beschreibe dein Wunschbild..."></textarea>
 
-    <div class="shop-preview">
-      <!-- Beispiel Produkt 1 -->
-      <div class="product">
-        <img src="https://via.placeholder.com/300x200" alt="Produkt 1">
-        <h3>Bild von der Sonne</h3>
-        <p>€29.99</p>
-        <button>Kaufen</button>
-      </div>
+    <button id="generateBtn">Bild generieren</button>
 
-      <!-- Beispiel Produkt 2 -->
-      <div class="product">
-        <img src="https://via.placeholder.com/300x200" alt="Produkt 2">
-        <h3>Bild von den Bergen</h3>
-        <p>€39.99</p>
-        <button>Kaufen</button>
-      </div>
+    <img id="preview" src="" alt="Dein generiertes Bild" />
+  </div>
 
-      <!-- Beispiel Produkt 3 -->
-      <div class="product">
-        <img src="https://via.placeholder.com/300x200" alt="Produkt 3">
-        <h3>Bild vom Ozean</h3>
-        <p>€34.99</p>
-        <button>Kaufen</button>
-      </div>
-    </div>
-  </section>
+  <div class="section">
+    <h2>Lieferadresse</h2>
 
-  <footer>
-    <p>&copy; 2025 MachDeinBild. Alle Rechte vorbehalten.</p>
-  </footer>
+    <label for="name">Name</label>
+    <input type="text" id="name" placeholder="Max Mustermann" />
 
+    <label for="address">Straße & Hausnummer</label>
+    <input type="text" id="address" placeholder="Musterstraße 12" />
+
+    <label for="zip">Postleitzahl</label>
+    <input type="text" id="zip" placeholder="10115" />
+
+    <label for="city">Stadt</label>
+    <input type="text" id="city" placeholder="Berlin" />
+
+    <label for="phone">Telefonnummer</label>
+    <input type="text" id="phone" placeholder="+49 123 4567890" />
+
+    <button id="orderBtn" disabled>Bestellung aufgeben</button>
+  </div>
+
+  <script src="shop.js"></script>
 </body>
 </html>
+
