@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Mach dein Bild</title>
+  <title>Mach Dein Bild</title>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
   <style>
     body {
@@ -24,7 +24,7 @@
     }
 
     header img {
-      height: 150px; /* Vergrößertes Logo */
+      height: 150px;
     }
 
     nav a {
@@ -56,49 +56,41 @@
       line-height: 1.6;
     }
 
-    /* Galerie für Endlosschleife */
     .gallery-wrapper {
       display: flex;
       width: 100%;
       animation: slideLeftRight 20s linear infinite;
     }
 
-    /* Endlosschleifen-Animation von links nach rechts */
     @keyframes slideLeftRight {
-      0% {
-        transform: translateX(0);
-      }
-      100% {
-        transform: translateX(-50%); /* Verschiebt die Galerie um 50% der Breite */
-      }
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
     }
 
     .image-container {
       flex: 0 0 auto;
-      width: 20%; /* Jedes Bild nimmt 20% der Gesamtbreite ein */
+      width: 20%;
       margin-right: 10px;
     }
 
     .image-container img {
-      width: 50%; /* Bildgröße auf 50% der Breite setzen */
+      width: 50%;
       height: auto;
       border-radius: 10px;
       box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     }
 
-    /* Anpassung des Containers für das generierte Bild */
     #preview {
       display: flex;
-      justify-content: center;  /* Zentriert das Bild horizontal */
-      align-items: center;      /* Zentriert das Bild vertikal */
-      height: 400px;            /* Setze die Höhe des Containers, um das Bild zu begrenzen */
+      justify-content: center;
+      align-items: center;
+      height: 400px;
       margin-top: 20px;
     }
 
-    /* Anpassung des generierten Bildes */
     #preview img {
-      max-width: 50%;    /* Setzt die maximale Breite des Bildes auf 50% der ursprünglichen Größe */
-      height: auto;      /* Die Höhe wird automatisch angepasst, um das Seitenverhältnis zu bewahren */
+      max-width: 50%;
+      height: auto;
     }
 
     footer {
@@ -108,25 +100,64 @@
       padding: 20px;
     }
 
+    /* Dynamische Galerie */
+    #dynamic-gallery {
+      padding: 60px 40px;
+      text-align: center;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+      gap: 20px;
+      margin-top: 20px;
+    }
+
+    .grid img {
+      width: 100%;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: transform 0.2s ease;
+    }
+
+    .grid img:hover {
+      transform: scale(1.05);
+    }
+
+    .btn {
+      display: inline-block;
+      margin-top: 30px;
+      padding: 12px 25px;
+      background: #0071e3;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: bold;
+    }
+
+    .btn:hover {
+      background: #005bb5;
+    }
   </style>
 </head>
 <body>
+
   <header>
     <img src="https://res.cloudinary.com/dntk0kj6v/image/upload/v1750767227/Logo1_qdtgt9.png" alt="MachDeinBild Logo">
     <nav>
-      <a href="index.html">Startseite</a> <!-- Link zur Startseite -->
-      <a href="about.html">Über Uns</a> <!-- Link zur About-Seite -->
-      <a href="shop.html">Shop</a> <!-- Link zur Shop-Seite -->
-      <a href="contact.html">Kontakt</a> <!-- Link zur Kontakt-Seite -->
-      <a href="faq.html">FAQ</a> <!-- Link zur FAQ-Seite -->
-      <a href="imprint.html">Impressum</a> <!-- Link zur Impressum-Seite -->
+      <a href="index.html">Startseite</a>
+      <a href="about.html">Über Uns</a>
+      <a href="shop.html">Shop</a>
+      <a href="gallery.html">Galerie</a> <!-- NEU -->
+      <a href="contact.html">Kontakt</a>
+      <a href="faq.html">FAQ</a>
+      <a href="imprint.html">Impressum</a>
     </nav>
   </header>
 
-  <!-- Hauptbereich: Beschreibung, Promptfeld und Galerie -->
   <section id="about">
     <h2>Über MachDeinBild</h2>
-    <p>Willkommen bei **MachDeinBild** – der kreativen Plattform, auf der du deine eigenen einzigartigen Bilder mit nur wenigen Klicks erstellen kannst. Unsere fortschrittliche Technologie hilft dir dabei, deine Visionen in beeindruckende Kunstwerke zu verwandeln!</p>
+    <p>Willkommen bei <strong>MachDeinBild</strong> – der kreativen Plattform, auf der du deine eigenen einzigartigen Bilder mit nur wenigen Klicks erstellen kannst. Unsere fortschrittliche Technologie hilft dir dabei, deine Visionen in beeindruckende Kunstwerke zu verwandeln!</p>
   </section>
 
   <section id="generateImage">
@@ -138,44 +169,28 @@
     <div id="preview"></div>
   </section>
 
-  <!-- Bildergalerie mit Endlosschleife -->
   <section id="image-gallery">
     <h2>Unsere kreativen Vorschau-Bilder</h2>
     <div class="gallery-wrapper">
-      <!-- Erste Reihe von Bildern -->
-      <div class="image-container">
-        <img src="https://res.cloudinary.com/dntk0kj6v/image/upload/v1750762679/74ef7367-f4fd-4b74-bfc1-07ce1f627fd9_nhw6dm.png" alt="Beispiel 1">
-      </div>
-      <div class="image-container">
-        <img src="https://res.cloudinary.com/dntk0kj6v/image/upload/v1750762679/30c72bd7-0777-40f6-8408-de8348f9fce8_ennrlj.png" alt="Beispiel 2">
-      </div>
-      <div class="image-container">
-        <img src="https://res.cloudinary.com/dntk0kj6v/image/upload/v1750762679/6d0fb302-8387-40a7-898e-e3802dd76ca7_alhfsu.png" alt="Beispiel 3">
-      </div>
-      <div class="image-container">
-        <img src="https://res.cloudinary.com/dntk0kj6v/image/upload/v1750628002/machdeinbild/vosxygz8r6kfrb9ptb8t.png" alt="Beispiel 4">
-      </div>
-      <div class="image-container">
-        <img src="https://res.cloudinary.com/dntk0kj6v/image/upload/v1750624914/machdeinbild/jyohsmetvf5p31tvbqm5.png" alt="Beispiel 5">
-      </div>
-      
-      <!-- Zweite Reihe von Bildern (Wiederholung der ersten Reihe für nahtlose Animation) -->
-      <div class="image-container">
-        <img src="https://res.cloudinary.com/dntk0kj6v/image/upload/v1750762679/74ef7367-f4fd-4b74-bfc1-07ce1f627fd9_nhw6dm.png" alt="Beispiel 1">
-      </div>
-      <div class="image-container">
-        <img src="https://res.cloudinary.com/dntk0kj6v/image/upload/v1750762679/30c72bd7-0777-40f6-8408-de8348f9fce8_ennrlj.png" alt="Beispiel 2">
-      </div>
-      <div class="image-container">
-        <img src="https://res.cloudinary.com/dntk0kj6v/image/upload/v1750762679/6d0fb302-8387-40a7-898e-e3802dd76ca7_alhfsu.png" alt="Beispiel 3">
-      </div>
-      <div class="image-container">
-        <img src="https://res.cloudinary.com/dntk0kj6v/image/upload/v1750628002/machdeinbild/vosxygz8r6kfrb9ptb8t.png" alt="Beispiel 4">
-      </div>
-      <div class="image-container">
-        <img src="https://res.cloudinary.com/dntk0kj6v/image/upload/v1750624914/machdeinbild/jyohsmetvf5p31tvbqm5.png" alt="Beispiel 5">
-      </div>
+      <div class="image-container"><img src="https://res.cloudinary.com/dntk0kj6v/image/upload/v1750762679/74ef7367-f4fd-4b74-bfc1-07ce1f627fd9_nhw6dm.png" alt="Beispiel 1"></div>
+      <div class="image-container"><img src="https://res.cloudinary.com/dntk0kj6v/image/upload/v1750762679/30c72bd7-0777-40f6-8408-de8348f9fce8_ennrlj.png" alt="Beispiel 2"></div>
+      <div class="image-container"><img src="https://res.cloudinary.com/dntk0kj6v/image/upload/v1750762679/6d0fb302-8387-40a7-898e-e3802dd76ca7_alhfsu.png" alt="Beispiel 3"></div>
+      <div class="image-container"><img src="https://res.cloudinary.com/dntk0kj6v/image/upload/v1750628002/machdeinbild/vosxygz8r6kfrb9ptb8t.png" alt="Beispiel 4"></div>
+      <div class="image-container"><img src="https://res.cloudinary.com/dntk0kj6v/image/upload/v1750624914/machdeinbild/jyohsmetvf5p31tvbqm5.png" alt="Beispiel 5"></div>
+      <!-- Wiederholung -->
+      <div class="image-container"><img src="https://res.cloudinary.com/dntk0kj6v/image/upload/v1750762679/74ef7367-f4fd-4b74-bfc1-07ce1f627fd9_nhw6dm.png" alt="Beispiel 1"></div>
+      <div class="image-container"><img src="https://res.cloudinary.com/dntk0kj6v/image/upload/v1750762679/30c72bd7-0777-40f6-8408-de8348f9fce8_ennrlj.png" alt="Beispiel 2"></div>
+      <div class="image-container"><img src="https://res.cloudinary.com/dntk0kj6v/image/upload/v1750762679/6d0fb302-8387-40a7-898e-e3802dd76ca7_alhfsu.png" alt="Beispiel 3"></div>
+      <div class="image-container"><img src="https://res.cloudinary.com/dntk0kj6v/image/upload/v1750628002/machdeinbild/vosxygz8r6kfrb9ptb8t.png" alt="Beispiel 4"></div>
+      <div class="image-container"><img src="https://res.cloudinary.com/dntk0kj6v/image/upload/v1750624914/machdeinbild/jyohsmetvf5p31tvbqm5.png" alt="Beispiel 5"></div>
     </div>
+  </section>
+
+  <!-- Dynamische Galerie -->
+  <section id="dynamic-gallery">
+    <h2>Entdecke unsere Community-Galerie</h2>
+    <div class="grid" id="galleryGrid"></div>
+    <a href="gallery.html" class="btn">Zur kompletten Galerie</a>
   </section>
 
   <footer>
@@ -211,10 +226,30 @@
         console.error("Fehler beim Generieren des Bildes:", err);
       }
     });
+
+    // Lade dynamische Galerie
+    fetch("/api/gallery")
+      .then(res => res.json())
+      .then(data => {
+        const grid = document.getElementById("galleryGrid");
+        data.forEach(img => {
+          const el = document.createElement("img");
+          el.src = img.secure_url;
+          el.alt = "Galerie-Bild";
+          el.onclick = () => {
+            localStorage.setItem("generatedImage", img.secure_url);
+            alert("Bild übernommen! Jetzt kannst du es im Shop verwenden.");
+            window.location.href = "shop.html";
+          };
+          grid.appendChild(el);
+        });
+      })
+      .catch(err => console.error("Fehler beim Laden der Galerie:", err));
   </script>
 
 </body>
 </html>
+
 
 
 
