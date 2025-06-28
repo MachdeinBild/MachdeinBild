@@ -2,133 +2,148 @@
 <html lang="de">
 <head>
   <meta charset="UTF-8" />
-  <title>MachDeinBild - Shop</title>
+  <title>Shop – MachDeinBild</title>
   <style>
     body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-      background: #f5f5f7;
-      color: #1d1d1f;
-      max-width: 800px;
+      font-family: Arial, sans-serif;
+      max-width: 600px;
       margin: 40px auto;
       padding: 0 20px;
+      text-align: center;
     }
 
-    header {
-      display: flex;
-      align-items: center;
-      margin-bottom: 40px;
+    h1 {
+      margin-bottom: 30px;
     }
 
-    header img {
-      height: 50px;
-      margin-right: 20px;
+    .mockup {
+      position: relative;
+      display: inline-block;
+      max-width: 100%;
+      margin-bottom: 20px;
     }
 
-    header h1 {
-      font-size: 1.8rem;
-      margin: 0;
+    .mockup img.bg {
+      width: 100%;
+      border-radius: 8px;
     }
 
-    h2 {
-      margin-top: 0;
+    .mockup img.generated {
+      position: absolute;
+      top: 10%;
+      left: 10%;
+      width: 80%;
+      height: 80%;
+      object-fit: cover;
+      border: 2px solid #eee;
+      box-shadow: 0 0 5px rgba(0,0,0,0.1);
     }
 
     label {
       display: block;
-      margin-top: 15px;
+      margin-top: 20px;
       margin-bottom: 5px;
-      font-weight: 600;
+      font-weight: bold;
     }
 
-    input, textarea {
+    select, button {
       width: 100%;
-      padding: 12px 15px;
-      border: 1px solid #ccc;
-      border-radius: 8px;
+      padding: 12px;
       font-size: 1rem;
-      margin-bottom: 15px;
-      background: #fff;
+      margin-bottom: 20px;
     }
 
     button {
-      width: 100%;
-      padding: 15px;
       background: #0071e3;
-      color: #fff;
+      color: white;
       border: none;
-      border-radius: 10px;
-      font-size: 1rem;
+      border-radius: 8px;
       cursor: pointer;
-      transition: background 0.2s ease;
     }
 
     button:hover {
       background: #005bb5;
     }
-
-    img#preview {
-      width: 100%;
-      max-width: 100%;
-      border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-      display: none;
-      margin: 20px 0;
-    }
-
-    .section {
-      background: #fff;
-      border-radius: 12px;
-      padding: 30px;
-      box-shadow: 0 0 20px rgba(0,0,0,0.05);
-      margin-bottom: 30px;
-    }
-
-    @media(max-width: 600px) {
-      body {
-        margin: 20px auto;
-        padding: 0 15px;
-      }
-    }
   </style>
 </head>
 <body>
 
-  <header>
-    <img src="logo.png" alt="MachDeinBild Logo" />
-    <h1>Mach Dein Bild</h1>
-  </header>
+  <h1>Wähle dein Produkt</h1>
 
-  <div class="section">
-    <label for="prompt">Dein Bild-Prompt:</label>
-    <textarea id="prompt" rows="3" placeholder="Beschreibe dein Wunschbild..."></textarea>
-
-    <button id="generateBtn">Bild generieren</button>
-
-    <img id="preview" src="" alt="Dein generiertes Bild" />
+  <div class="mockup">
+    <img id="mockup-bg" class="bg" src="poster-mockup.png" alt="Mockup Hintergrund">
+    <img id="preview" class="generated" src="" alt="Dein Bild">
   </div>
 
-  <div class="section">
-    <h2>Lieferadresse</h2>
+  <label for="product">Produkt:</label>
+  <select id="product">
+    <option value="poster">Poster</option>
+    <option value="leinwand">Leinwand</option>
+  </select>
 
-    <label for="name">Name</label>
-    <input type="text" id="name" placeholder="Max Mustermann" />
+  <label for="size">Größe:</label>
+  <select id="size">
+    <option value="A3">A3</option>
+    <option value="A2">A2</option>
+    <option value="A1">A1</option>
+  </select>
 
-    <label for="address">Straße & Hausnummer</label>
-    <input type="text" id="address" placeholder="Musterstraße 12" />
+  <button id="nextBtn">Weiter</button>
 
-    <label for="zip">Postleitzahl</label>
-    <input type="text" id="zip" placeholder="10115" />
+  <script>
+    const preview = document.getElementById("preview");
+    const mockupBg = document.getElementById("mockup-bg");
+    const productSelect = document.getElementById("product");
+    const sizeSelect = document.getElementById("size");
+    const nextBtn = document.getElementById("nextBtn");
 
-    <label for="city">Stadt</label>
-    <input type="text" id="city" placeholder="Berlin" />
+    // Generiertes Bild laden
+    const imageUrl = localStorage.getItem("generatedImage");
+    if (!imageUrl) {
+      alert("Kein Bild gefunden, zurück zur Startseite!");
+      window.location.href = "index.html";
+    } else {
+      preview.src = imageUrl;
+    }
 
-    <label for="phone">Telefonnummer</label>
-    <input type="text" id="phone" placeholder="+49 123 4567890" />
+    // Produkt ändern → Mockup-Hintergrund wechseln
+    productSelect.addEventListener("change", () => {
+      const product = productSelect.value;
+      if (product === "poster") {
+        mockupBg.src = "poster-mockup.png";
+      } else if (product === "leinwand") {
+        mockupBg.src = "leinwand-mockup.png";
+      }
+    });
 
-    <button id="orderBtn" disabled>Bestellung aufgeben</button>
-  </div>
+    nextBtn.addEventListener("click", () => {
+      const product = productSelect.value;
+      const size = sizeSelect.value;
 
-  <script src="shop.js"></script>
+      // Printful-Variant-ID je nach Produkt + Größe
+      let variantId = 0;
+
+      if (product === "poster") {
+        if (size === "A3") variantId = 11111;
+        if (size === "A2") variantId = 22222;
+        if (size === "A1") variantId = 33333;
+      } else if (product === "leinwand") {
+        if (size === "A3") variantId = 44444;
+        if (size === "A2") variantId = 55555;
+        if (size === "A1") variantId = 66666;
+      }
+
+      localStorage.setItem("selectedProduct", product);
+      localStorage.setItem("selectedSize", size);
+      localStorage.setItem("selectedVariantId", variantId);
+
+      alert(`Du hast gewählt: ${product} in ${size} (Variant-ID ${variantId})`);
+
+      // Später: window.location.href = "checkout.html";
+    });
+  </script>
+
 </body>
 </html>
+
 
