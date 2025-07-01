@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Datenschutz – MachDeinBild</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Roboto', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f9;
+    }
+
+    main {
+      max-width: 900px;
+      margin: 60px auto;
+      padding: 0 40px;
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 2rem;
+      color: #333;
+      margin-bottom: 30px;
+    }
+
+    p {
+      font-size: 1.1rem;
+      color: #555;
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
+
+    h2 {
+      font-size: 1.4rem;
+      color: #333;
+      margin-top: 30px;
+    }
+  </style>
+</head>
+<body>
+
+  <div id="site-header"></div>
+
+  <main>
+    <h1>Datenschutzerklärung</h1>
+    <p>Wir freuen uns über dein Interesse an MachDeinBild. Der Schutz deiner personenbezogenen Daten ist uns sehr wichtig. Nachfolgend informieren wir dich ausführlich über den Umgang mit deinen Daten.</p>
+
+    <h2>1. Verantwortliche Stelle</h2>
+    <p>Verantwortlich für die Datenverarbeitung auf dieser Website ist:<br>
+    MachDeinBild GmbH<br>
+    Musterstraße 1<br>
+    12345 Musterstadt<br>
+    E-Mail: info@machdeinbild.de</p>
+
+    <h2>2. Erhebung und Verarbeitung personenbezogener Daten</h2>
+    <p>Wir erheben personenbezogene Daten, wenn du uns diese im Rahmen deiner Bestellung, bei einer Kontaktaufnahme mit uns oder bei der Eröffnung eines Kundenkontos freiwillig mitteilst.</p>
+
+    <h2>3. Verwendung der Daten</h2>
+    <p>Die von dir mitgeteilten Daten verwenden wir zur Vertragsabwicklung und Bearbeitung deiner Anfragen. Nach vollständiger Abwicklung des Vertrages werden deine Daten gesperrt und nach Ablauf der steuer- und handelsrechtlichen Aufbewahrungsfristen gelöscht.</p>
+
+    <h2>4. Weitergabe der Daten</h2>
+    <p>Eine Weitergabe deiner Daten erfolgt nur, soweit dies zur Vertragsabwicklung erforderlich ist, etwa an das mit der Lieferung beauftragte Versandunternehmen oder das mit der Zahlungsabwicklung beauftragte Kreditinstitut.</p>
+
+    <h2>5. Cookies</h2>
+    <p>Unsere Website verwendet Cookies, um die Benutzerfreundlichkeit zu erhöhen. Du kannst deinen Browser so einstellen, dass du über das Setzen von Cookies informiert wirst und einzeln über deren Annahme entscheidest oder die Annahme von Cookies für bestimmte Fälle oder generell ausschließt.</p>
+
+    <h2>6. Auskunftsrecht und Kontaktmöglichkeit</h2>
+    <p>Du hast ein Recht auf unentgeltliche Auskunft über die bei uns zu deiner Person gespeicherten Daten sowie ggf. ein Recht auf Berichtigung, Sperrung oder Löschung dieser Daten. Bei Fragen zur Erhebung, Verarbeitung oder Nutzung deiner personenbezogenen Daten wende dich bitte an uns.</p>
+  </main>
+
+  <div id="site-footer"></div>
+
+  <script>
+    fetch("header.html")
+      .then(res => res.text())
+      .then(data => document.getElementById("site-header").innerHTML = data);
+
+    fetch("footer.html")
+      .then(res => res.text())
+      .then(data => document.getElementById("site-footer").innerHTML = data);
+  </script>
+
+</body>
+</html>
