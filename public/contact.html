@@ -98,16 +98,7 @@
   </style>
 </head>
 <body>
-  <header>
-    <img src="https://res.cloudinary.com/dntk0kj6v/image/upload/v1750767227/Logo1_qdtgt9.png" alt="MachDeinBild Logo">
-    <nav>
-      <a href="index.html">Startseite</a>
-      <a href="about.html">Über Uns</a>
-      <a href="shop.html">Shop</a>
-      <a href="faq.html">FAQ</a>
-      <a href="imprint.html">Impressum</a>
-    </nav>
-  </header>
+  <div id="site-header"></div>
 
   <section>
     <h2>Kontakt</h2>
@@ -130,9 +121,16 @@
     </div>
   </section>
 
-  <footer>
-    <p>&copy; 2025 MachDeinBild. Alle Rechte vorbehalten.</p>
-  </footer>
+   <div id="site-footer"></div>
+<script>
+    fetch("header.html")
+      .then(res => res.text())
+      .then(data => document.getElementById("site-header").innerHTML = data);
+
+    fetch("footer.html")
+      .then(res => res.text())
+      .then(data => document.getElementById("site-footer").innerHTML = data);
+  </script>
 
 </body>
 </html>
