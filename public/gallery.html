@@ -11,6 +11,7 @@
   </style>
 </head>
 <body>
+    <div id="site-header"></div>
   <h1>Galerie</h1>
   <div class="grid" id="gallery"></div>
 
@@ -31,5 +32,19 @@
         });
       });
   </script>
+
+  <div id="site-footer"></div>
+  
+  <script>
+    fetch("header.html")
+      .then(res => res.text())
+      .then(data => document.getElementById("site-header").innerHTML = data);
+
+    fetch("footer.html")
+      .then(res => res.text())
+      .then(data => document.getElementById("site-footer").innerHTML = data);
+  </script>
+</body>
+</html>
 </body>
 </html>
