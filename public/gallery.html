@@ -4,18 +4,54 @@
   <meta charset="UTF-8" />
   <title>Galerie – MachDeinBild</title>
   <style>
-    body { font-family: Arial, sans-serif; max-width: 1200px; margin: 40px auto; padding: 0 20px; }
-    h1 { text-align: center; }
-    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 20px; }
-    .grid img { width: 100%; border-radius: 8px; cursor: pointer; }
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background: #f5f5f5;
+    }
+
+    main {
+      max-width: 1200px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+
+    h1 {
+      text-align: center;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 20px;
+    }
+
+    .grid img {
+      width: 100%;
+      border-radius: 8px;
+      cursor: pointer;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      transition: transform 0.2s ease;
+    }
+
+    .grid img:hover {
+      transform: scale(1.03);
+    }
   </style>
 </head>
 <body>
-    <div id="site-header"></div>
-  <h1>Galerie</h1>
-  <div class="grid" id="gallery"></div>
+
+  <div id="site-header"></div>
+
+  <main>
+    <h1>Galerie</h1>
+    <div class="grid" id="gallery"></div>
+  </main>
+
+  <div id="site-footer"></div>
 
   <script>
+    // Galerie-Bilder laden
     fetch("/api/gallery")
       .then(res => res.json())
       .then(data => {
@@ -31,11 +67,8 @@
           gallery.appendChild(el);
         });
       });
-  </script>
 
-  <div id="site-footer"></div>
-  
-  <script>
+    // Header & Footer laden
     fetch("header.html")
       .then(res => res.text())
       .then(data => document.getElementById("site-header").innerHTML = data);
@@ -44,7 +77,7 @@
       .then(res => res.text())
       .then(data => document.getElementById("site-footer").innerHTML = data);
   </script>
+
 </body>
 </html>
-</body>
-</html>
+
