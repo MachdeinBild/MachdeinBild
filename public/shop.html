@@ -111,6 +111,115 @@
       }
     }
   </style>
+</head>
+<body>
+
+  <div id="site-header"></div>
+
+  <div class="container">
+
+    <div class="preview">
+      <div class="mockup">
+        <img id="mockup-bg" class="bg" src="poster-mockup.png" alt="Mockup Hintergrund">
+        <img id="preview" class="generated" src="" alt="Dein Bild">
+      </div>
+    </div>
+
+    <div class="options">
+      <h1>Dein Wandbild</h1>
+
+      <div class="option-group">
+        <label for="product">Produktart:</label>
+        <select id="product">
+          <option value="poster">Poster</option>
+          <option value="leinwand">Leinwand</option>
+        </select>
+      </div>
+
+      <div class="option-group">
+        <label for="size">Größe:</label>
+        <select id="size">
+          <option value="A3">A3 (29,7 × 42 cm)</option>
+          <option value="A2">A2 (42 × 59,4 cm)</option>
+          <option value="A1">A1 (59,4 × 84,1 cm)</option>
+        </select>
+      </div>
+
+      <div class="price-box">
+        <strong>Preis:</strong> ab 19,99 € <br>
+        Lieferzeit: ca. 3–5 Werktage
+      </div>
+
+      <button id="nextBtn" class="btn">Weiter</button>
+    </div>
+
+  </div>
+
+  <div id="site-footer"></div>
+
+  <script>
+    // Header & Footer laden
+    fetch("header.html")
+      .then(res => res.text())
+      .then(data => document.getElementById("site-header").innerHTML = data);
+
+    fetch("footer.html")
+      .then(res => res.text())
+      .then(data => document.getElementById("site-footer").innerHTML = data);
+
+    // Bild-Handling
+    const preview = document.getElementById("preview");
+    const mockupBg = document.getElementById("mockup-bg");
+    const productSelect = document.getElementById("product");
+    const sizeSelect = document.getElementById("size");
+    const nextBtn = document.getElementById("nextBtn");
+
+    const placeholderUrl = "https://res.cloudinary.com/dntk0kj6v/image/upload/v1751141888/Platzhalter_sgzfyc.png";
+    const imageUrl = localStorage.getItem("generatedImage");
+
+    if (imageUrl) {
+      preview.src = imageUrl;
+    } else {
+      preview.src = placeholderUrl;
+      localStorage.setItem("generatedImage", placeholderUrl);
+    }
+
+    productSelect.addEventListener("change", () => {
+      const product = productSelect.value;
+      if (product === "poster") {
+        mockupBg.src = "poster-mockup.png";
+      } else {
+        mockupBg.src = "leinwand-mockup.png";
+      }
+    });
+
+    nextBtn.addEventListener("click", () => {
+      const product = productSelect.value;
+      const size = sizeSelect.value;
+
+      let variantId = 0;
+      if (product === "poster") {
+        if (size === "A3") variantId = 11111;
+        if (size === "A2") variantId = 22222;
+        if (size === "A1") variantId = 33333;
+      } else {
+        if (size === "A3") variantId = 44444;
+        if (size === "A2") variantId = 55555;
+        if (size === "A1") variantId = 66666;
+      }
+
+      localStorage.setItem("selectedProduct", product);
+      localStorage.setItem("selectedSize", size);
+      localStorage.setItem("selectedVariantId", variantId);
+
+      alert(`Du hast gewählt: ${product} in ${size} (ID ${variantId})`);
+      // window.location.href = "checkout.html";
+    });
+  </script>
+
+</body>
+</html>
+
 
 
 
