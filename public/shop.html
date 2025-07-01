@@ -110,6 +110,8 @@
 </head>
 <body>
 
+   <div id="site-header"></div>
+
   <div class="container">
 
     <div class="preview">
@@ -197,6 +199,18 @@
       alert(`Du hast gewählt: ${product} in ${size} (ID ${variantId})`);
       // window.location.href = "checkout.html";
     });
+  </script>
+
+   <div id="site-footer"></div>
+
+   <script>
+    fetch("header.html")
+      .then(res => res.text())
+      .then(data => document.getElementById("site-header").innerHTML = data);
+
+    fetch("footer.html")
+      .then(res => res.text())
+      .then(data => document.getElementById("site-footer").innerHTML = data);
   </script>
 
 </body>
