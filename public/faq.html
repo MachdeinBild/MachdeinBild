@@ -14,31 +14,6 @@
       background-color: #f4f4f9;
     }
 
-    header {
-      background-color: white;
-      padding: 20px 40px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    }
-
-    header img {
-      height: 150px; /* Vergrößertes Logo */
-    }
-
-    nav a {
-      margin: 0 15px;
-      text-decoration: none;
-      color: #333;
-      font-weight: 500;
-      transition: color 0.3s ease;
-    }
-
-    nav a:hover {
-      color: #0078d4;
-    }
-
     section {
       padding: 60px 40px;
       text-align: center;
@@ -60,8 +35,7 @@
 
     .faq-container {
       max-width: 800px;
-      margin: 0 auto;
-      padding-top: 40px;
+      margin: 40px auto;
     }
 
     .faq-item {
@@ -70,6 +44,7 @@
       background-color: #fff;
       border-radius: 8px;
       box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      text-align: left;
     }
 
     .faq-item h3 {
@@ -82,25 +57,32 @@
       color: #555;
       font-size: 1rem;
     }
-
-    footer {
-      background-color: #333;
-      color: white;
-      text-align: center;
-      padding: 20px;
-    }
-
   </style>
 </head>
 <body>
-   <div id="site-header"></div>
+
+  <div id="site-header"></div>
 
   <section>
     <h2>FAQ - Häufig gestellte Fragen</h2>
     <p>Hier findest du Antworten auf häufig gestellte Fragen rund um unseren Service und unsere Produkte. Solltest du weitere Fragen haben, zögere nicht, uns zu kontaktieren!</p>
 
-      <div id="site-footer"></div>
-    <script>
+    <div class="faq-container">
+      <div class="faq-item">
+        <h3>Wie lange dauert die Lieferung?</h3>
+        <p>Die Lieferung dauert in der Regel 3–5 Werktage innerhalb Deutschlands.</p>
+      </div>
+      <div class="faq-item">
+        <h3>Welche Zahlungsmethoden gibt es?</h3>
+        <p>Du kannst bequem per Kreditkarte, PayPal oder Überweisung bezahlen.</p>
+      </div>
+      <!-- Weitere FAQ-Elemente -->
+    </div>
+  </section>
+
+  <div id="site-footer"></div>
+
+  <script>
     fetch("header.html")
       .then(res => res.text())
       .then(data => document.getElementById("site-header").innerHTML = data);
@@ -109,5 +91,6 @@
       .then(res => res.text())
       .then(data => document.getElementById("site-footer").innerHTML = data);
   </script>
+
 </body>
 </html>
