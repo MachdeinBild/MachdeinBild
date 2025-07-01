@@ -129,44 +129,13 @@
     <div id="preview"></div>
   </main>
 
-  <!-- Galerie unten -->
-  <div class="gallery-wrapper">
-    <div class="image-container">
-      <img src="https://res.cloudinary.com/dntk0kj6v/image/upload/v1750762679/74ef7367-f4fd-4b74-bfc1-07ce1f627fd9_nhw6dm.png" alt="Beispiel 1">
-    </div>
-    <div class="image-container">
-      <img src="https://res.cloudinary.com/dntk0kj6v/image/upload/v1750762679/30c72bd7-0777-40f6-8408-de8348f9fce8_ennrlj.png" alt="Beispiel 2">
-    </div>
-    <div class="image-container">
-      <img src="https://res.cloudinary.com/dntk0kj6v/image/upload/v1750762679/6d0fb302-8387-40a7-898e-e3802dd76ca7_alhfsu.png" alt="Beispiel 3">
-    </div>
-    <div class="image-container">
-      <img src="https://res.cloudinary.com/dntk0kj6v/image/upload/v1750628002/machdeinbild/vosxygz8r6kfrb9ptb8t.png" alt="Beispiel 4">
-    </div>
-    <div class="image-container">
-      <img src="https://res.cloudinary.com/dntk0kj6v/image/upload/v1750624914/machdeinbild/jyohsmetvf5p31tvbqm5.png" alt="Beispiel 5">
-    </div>
-    <!-- Wiederholung für Endlosschleife -->
-    <div class="image-container">
-      <img src="https://res.cloudinary.com/dntk0kj6v/image/upload/v1750762679/74ef7367-f4fd-4b74-bfc1-07ce1f627fd9_nhw6dm.png" alt="Beispiel 1">
-    </div>
-    <div class="image-container">
-      <img src="https://res.cloudinary.com/dntk0kj6v/image/upload/v1750762679/30c72bd7-0777-40f6-8408-de8348f9fce8_ennrlj.png" alt="Beispiel 2">
-    </div>
-    <div class="image-container">
-      <img src="https://res.cloudinary.com/dntk0kj6v/image/upload/v1750762679/6d0fb302-8387-40a7-898e-e3802dd76ca7_alhfsu.png" alt="Beispiel 3">
-    </div>
-    <div class="image-container">
-      <img src="https://res.cloudinary.com/dntk0kj6v/image/upload/v1750628002/machdeinbild/vosxygz8r6kfrb9ptb8t.png" alt="Beispiel 4">
-    </div>
-    <div class="image-container">
-      <img src="https://res.cloudinary.com/dntk0kj6v/image/upload/v1750624914/machdeinbild/jyohsmetvf5p31tvbqm5.png" alt="Beispiel 5">
-    </div>
-  </div>
+  <!-- Automatisch geladene Galerie -->
+  <div class="gallery-wrapper" id="index-gallery"></div>
 
   <div id="site-footer"></div>
 
   <script>
+    // Header & Footer laden
     fetch("header.html")
       .then(res => res.text())
       .then(data => document.getElementById("site-header").innerHTML = data);
@@ -175,6 +144,7 @@
       .then(res => res.text())
       .then(data => document.getElementById("site-footer").innerHTML = data);
 
+    // Prompt Handling
     const form = document.getElementById("promptForm");
     const input = document.getElementById("promptInput");
     const preview = document.getElementById("preview");
@@ -203,10 +173,28 @@
         console.error(err);
       }
     });
+
+    // Galerie dynamisch laden
+    fetch("/api/gallery")
+      .then(res => res.json())
+      .then(data => {
+        const wrapper = document.getElementById("index-gallery");
+        data.concat(data).forEach(img => { // doppelt für Endlosschleife
+          const container = document.createElement("div");
+          container.className = "image-container";
+
+          const image = document.createElement("img");
+          image.src = img.secure_url;
+          container.appendChild(image);
+
+          wrapper.appendChild(container);
+        });
+      });
   </script>
 
 </body>
 </html>
+
 
 
 
