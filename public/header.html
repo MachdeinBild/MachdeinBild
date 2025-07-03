@@ -16,18 +16,22 @@
     background-color: white;
     width: 100%;
     display: flex;
+    flex-wrap: wrap; /* wichtig! */
     justify-content: space-between;
     align-items: center;
-    padding: 15px 20px; /* schmaler, damit mehr Platz ist */
+    padding: 15px 20px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden; /* verhindert Scrollbalken */
   }
 
   header img {
     height: 140px;
+    max-width: 30%;
   }
 
   nav {
-    flex-shrink: 1;
+    flex: 1 1 auto;
+    text-align: right;
   }
 
   nav a {
