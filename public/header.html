@@ -16,7 +16,6 @@
     background-color: white;
     width: 100%;
     display: flex;
-    flex-wrap: wrap; /* Zeilenumbruch erlauben! */
     justify-content: space-between;
     align-items: center;
     padding: 15px 40px;
@@ -24,15 +23,20 @@
   }
 
   header img {
-    height: 112.5px;
+    height: 140px; /* größer! */
+    margin-right: 20px; /* Platz zum Nav */
+  }
+
+  nav {
+    margin-left: -40px; /* weiter nach links */
   }
 
   nav a {
-    margin: 0 8px; /* enger */
+    margin: 0 10px;
     text-decoration: none;
     color: #333;
     font-weight: 500;
-    font-size: 0.95rem; /* etwas kleiner */
+    font-size: 1rem;
     transition: color 0.3s ease;
   }
 
@@ -40,6 +44,7 @@
     color: #0078d4;
   }
 </style>
+
 
 
 
