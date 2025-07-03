@@ -18,7 +18,7 @@
       background: #fff;
       border-radius: 12px;
       box-shadow: 0 0 20px rgba(0,0,0,0.05);
-      overflow: visible; /* Dropdown darf raus */
+      overflow: visible;
     }
 
     .preview {
@@ -52,16 +52,16 @@
       box-shadow: 0 0 5px rgba(0,0,0,0.1);
     }
 
-    /* Platzhalter-Bild: voll sichtbar, kein Beschnitt */
+    /* FIX: Platzhalter zeigt immer komplett */
     .mockup img.generated.placeholder {
-      position: static;
-      top: auto;
-      left: auto;
-      width: 100%;
-      height: auto;
-      object-fit: contain;
-      border: none;
-      box-shadow: none;
+      position: static !important;
+      top: auto !important;
+      left: auto !important;
+      width: 100% !important;
+      height: auto !important;
+      object-fit: contain !important;
+      border: none !important;
+      box-shadow: none !important;
     }
 
     .options {
@@ -70,7 +70,7 @@
       display: flex;
       flex-direction: column;
       justify-content: center;
-      max-width: 400px; /* Begrenzt die Breite */
+      max-width: 400px;
       margin: 0 auto;
     }
 
@@ -189,10 +189,12 @@
       .then(res => res.text())
       .then(data => document.getElementById("site-footer").innerHTML = data);
 
-    // Bild-Logik
+    // Bild-Logik mit Debug
     const preview = document.getElementById("preview");
     const mockupBg = document.getElementById("mockup-bg");
     const imageUrl = localStorage.getItem("generatedImage");
+
+    console.log("Gefundene Image-URL:", imageUrl);
 
     if (imageUrl) {
       preview.src = imageUrl;
@@ -225,6 +227,7 @@
 
 </body>
 </html>
+
 
 
 
