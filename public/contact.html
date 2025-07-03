@@ -14,31 +14,6 @@
       background-color: #f4f4f9;
     }
 
-    header {
-      background-color: white;
-      padding: 20px 40px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    }
-
-    header img {
-      height: 150px; /* Vergrößertes Logo */
-    }
-
-    nav a {
-      margin: 0 15px;
-      text-decoration: none;
-      color: #333;
-      font-weight: 500;
-      transition: color 0.3s ease;
-    }
-
-    nav a:hover {
-      color: #0078d4;
-    }
-
     section {
       padding: 60px 40px;
       text-align: center;
@@ -69,7 +44,8 @@
       margin-right: auto;
     }
 
-    #contactForm input, #contactForm textarea {
+    #contactForm input,
+    #contactForm textarea {
       width: 100%;
       padding: 1rem;
       margin-bottom: 1rem;
@@ -94,7 +70,6 @@
       text-align: center;
       padding: 20px;
     }
-
   </style>
 </head>
 <body>
@@ -106,7 +81,7 @@
 
     <!-- Kontaktformular -->
     <div id="contactForm">
-      <form action="mailto:deineemail@domain.com" method="post" enctype="text/plain">
+      <form id="contactFormInner">
         <label for="name">Dein Name:</label>
         <input type="text" id="name" name="name" placeholder="Gib deinen Namen ein" required />
 
@@ -118,11 +93,13 @@
 
         <button type="submit">Nachricht senden</button>
       </form>
+      <div id="response"></div>
     </div>
   </section>
 
-   <div id="site-footer"></div>
-<script>
+  <div id="site-footer"></div>
+
+  <script>
     fetch("header.html")
       .then(res => res.text())
       .then(data => document.getElementById("site-header").innerHTML = data);
@@ -130,7 +107,40 @@
     fetch("footer.html")
       .then(res => res.text())
       .then(data => document.getElementById("site-footer").innerHTML = data);
-  </script>
 
+    const form = document.getElementById("contactFormInner");
+    const responseBox = document.getElementById("response");
+
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+
+      const data = {
+        name: document.getElementById("name").value,
+        email: document.getElementById("email").value,
+        message: document.getElementById("message").value
+      };
+
+      responseBox.innerText = "Wird gesendet...";
+
+      try {
+        const res = await fetch("/contact", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(data)
+        });
+
+        const result = await res.json();
+        if (result.success) {
+          responseBox.innerText = "Danke! Deine Nachricht wurde verschickt.";
+          form.reset();
+        } else {
+          responseBox.innerText = "Fehler: " + (result.error || "Bitte später erneut versuchen.");
+        }
+      } catch (err) {
+        responseBox.innerText = "Ein Fehler ist aufgetreten. Bitte später erneut versuchen.";
+      }
+    });
+  </script>
 </body>
 </html>
+
