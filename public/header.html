@@ -14,43 +14,43 @@
 <style>
   body {
     margin: 0;
-    overflow-x: hidden; /* GANZ WICHTIG! */
+    overflow-x: hidden; /* Keine horizontale Scrollleiste mehr */
   }
 
   header {
     background-color: white;
     width: 100%;
     display: flex;
-    flex-wrap: wrap; /* jetzt darf es wirklich umbrechen */
+    flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
-    padding: 10px 20px;
+    padding: 15px 20px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
   }
 
   header img {
-    max-height: 120px;   /* skaliert mit! */
-    max-width: 200px;    /* keine Übergröße */
-    height: auto;
-    width: auto;
+    height: 140px; /* Schön groß */
+    max-width: 250px; /* Optional, damit es nicht überläuft */
   }
 
   nav {
-    flex: 1 1 auto; 
+    flex: 1 1 auto;
     text-align: right;
+    margin-right: -20px; /* Schiebt die ganze Navi ca. 1cm nach links */
   }
 
   nav a {
-    margin: 0 8px; /* etwas enger */
+    margin: 0 10px;
     text-decoration: none;
     color: #333;
     font-weight: 500;
     font-size: 1rem;
     transition: color 0.3s ease;
-    white-space: nowrap; /* Links brechen nicht selbst um */
+    white-space: nowrap;
   }
 
   nav a:hover {
     color: #0078d4;
   }
 </style>
+
