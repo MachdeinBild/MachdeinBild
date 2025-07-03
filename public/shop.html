@@ -12,13 +12,13 @@
 
     .container {
       display: flex;
-      flex-wrap: nowrap; /* Kein Umbruch */
+      flex-wrap: nowrap; /* Kein Umbruch nebeneinander */
       max-width: 1200px;
       margin: 40px auto;
       background: #fff;
       border-radius: 12px;
       box-shadow: 0 0 20px rgba(0,0,0,0.05);
-      overflow: hidden;
+      overflow: visible; /* WICHTIG: Dropdown kann raus! */
     }
 
     .preview {
@@ -57,7 +57,11 @@
       padding: 40px;
       display: flex;
       flex-direction: column;
-      justify-content: center; /* Zentriert die Form vertikal */
+      justify-content: center;
+    }
+
+    .options h1 {
+      margin-top: 0;
     }
 
     .option-group {
@@ -102,9 +106,11 @@
 
     @media (max-width: 900px) {
       .container {
-        flex-wrap: wrap; /* Bei schmalem Viewport untereinander */
+        flex-wrap: wrap; /* Untereinander auf kleineren Screens */
       }
-      .preview, .options {
+
+      .preview,
+      .options {
         flex: 0 0 100%;
       }
     }
@@ -154,6 +160,7 @@
   <div id="site-footer"></div>
 
   <script>
+    // Header & Footer laden
     fetch("header.html")
       .then(res => res.text())
       .then(data => document.getElementById("site-header").innerHTML = data);
@@ -162,16 +169,26 @@
       .then(res => res.text())
       .then(data => document.getElementById("site-footer").innerHTML = data);
 
+    // Bild-Logik
     const preview = document.getElementById("preview");
     const mockupBg = document.getElementById("mockup-bg");
-    const imageUrl = localStorage.getItem("generatedImage") || "https://res.cloudinary.com/dntk0kj6v/image/upload/v1751141888/Platzhalter_sgzfyc.png";
-    preview.src = imageUrl;
+    const imageUrl = localStorage.getItem("generatedImage");
 
+    if (imageUrl) {
+      preview.src = imageUrl;
+    } else {
+      preview.src = "https://res.cloudinary.com/dntk0kj6v/image/upload/v1751542396/Platzhalter_ds7tj4.png";
+    }
+
+    // Mockup wechseln
     const productSelect = document.getElementById("product");
     productSelect.addEventListener("change", () => {
-      mockupBg.src = productSelect.value === "poster" ? "poster-mockup.png" : "leinwand-mockup.png";
+      mockupBg.src = productSelect.value === "poster"
+        ? "poster-mockup.png"
+        : "leinwand-mockup.png";
     });
 
+    // Weiter-Button
     const nextBtn = document.getElementById("nextBtn");
     nextBtn.addEventListener("click", () => {
       const product = productSelect.value;
@@ -181,11 +198,13 @@
       localStorage.setItem("selectedSize", size);
 
       alert(`Du hast ${product} in ${size} gewählt.`);
+      // Hier später: window.location.href = "checkout.html";
     });
   </script>
 
 </body>
 </html>
+
 
 
 
