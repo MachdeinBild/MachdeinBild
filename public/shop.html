@@ -18,7 +18,7 @@
       background: #fff;
       border-radius: 12px;
       box-shadow: 0 0 20px rgba(0,0,0,0.05);
-      overflow: visible; /* Dropdown kann raus */
+      overflow: visible; /* Dropdown darf raus */
     }
 
     .preview {
@@ -52,14 +52,26 @@
       box-shadow: 0 0 5px rgba(0,0,0,0.1);
     }
 
+    /* Platzhalter-Bild: voll sichtbar, kein Beschnitt */
+    .mockup img.generated.placeholder {
+      position: static;
+      top: auto;
+      left: auto;
+      width: 100%;
+      height: auto;
+      object-fit: contain;
+      border: none;
+      box-shadow: none;
+    }
+
     .options {
       flex: 0 0 50%;
       padding: 40px;
       display: flex;
       flex-direction: column;
       justify-content: center;
-      max-width: 400px; /* Begrenzung damit nix rausguckt */
-      margin: 0 auto;   /* Zentriert den Block innerhalb der 50% */
+      max-width: 400px; /* Begrenzt die Breite */
+      margin: 0 auto;
     }
 
     .options h1 {
@@ -184,6 +196,9 @@
 
     if (imageUrl) {
       preview.src = imageUrl;
+      preview.classList.remove('placeholder');
+    } else {
+      preview.classList.add('placeholder');
     }
 
     // Mockup wechseln
@@ -210,6 +225,7 @@
 
 </body>
 </html>
+
 
 
 
