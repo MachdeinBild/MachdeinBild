@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <title>TEST – Platzhalter</title>
+  <style>
+    .box {
+      position: relative;
+      width: 400px;
+      height: 400px;
+      background: #eee;
+    }
+
+    .box img {
+      position: absolute;
+      top: 10%;
+      left: 10%;
+      width: 80%;
+      height: 80%;
+      object-fit: cover;
+      border: 2px solid red;
+    }
+
+    .box img.placeholder {
+      position: static !important;
+      width: 100% !important;
+      height: auto !important;
+      object-fit: contain !important;
+      border: 5px solid green !important;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="box">
+    <img id="test-img"
+         src="https://res.cloudinary.com/dntk0kj6v/image/upload/v1751542396/Platzhalter_ds7tj4.png"
+         alt="Test">
+  </div>
+
+  <button id="toggle">Platzhalter AN</button>
+
+  <script>
+    const img = document.getElementById("test-img");
+    const btn = document.getElementById("toggle");
+
+    btn.addEventListener("click", () => {
+      img.classList.toggle("placeholder");
+    });
+  </script>
+
+</body>
+</html>
