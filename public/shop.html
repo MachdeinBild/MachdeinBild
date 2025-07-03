@@ -5,17 +5,16 @@
   <title>Mach Dein Bild – Shop</title>
   <style>
     body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-      background: #f5f5f5;
       margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f5f5f5;
     }
 
     .container {
       display: flex;
-      flex-wrap: wrap;
+      flex-wrap: nowrap; /* Kein Umbruch */
       max-width: 1200px;
       margin: 40px auto;
-      padding: 40px;
       background: #fff;
       border-radius: 12px;
       box-shadow: 0 0 20px rgba(0,0,0,0.05);
@@ -23,7 +22,7 @@
     }
 
     .preview {
-      flex: 1 1 50%;
+      flex: 0 0 50%;
       padding: 40px;
       background: #fafafa;
       display: flex;
@@ -33,32 +32,32 @@
 
     .mockup {
       position: relative;
-      width: 100%;
-      aspect-ratio: 3/4; /* z.B. für A3/A2 Poster-Seitenverhältnis */
-      max-width: 500px; /* Optional Begrenzung */
+      max-width: 100%;
+      max-height: 80vh;
     }
 
     .mockup img.bg {
       width: 100%;
-      height: 100%;
-      object-fit: contain;
       border-radius: 8px;
     }
 
     .mockup img.generated {
       position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
+      top: 10%;
+      left: 10%;
+      width: 80%;
+      height: 80%;
       object-fit: cover;
       border: 2px solid #eee;
       box-shadow: 0 0 5px rgba(0,0,0,0.1);
     }
 
     .options {
-      flex: 1 1 50%;
+      flex: 0 0 50%;
       padding: 40px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center; /* Zentriert die Form vertikal */
     }
 
     .option-group {
@@ -101,32 +100,31 @@
       background: #005bb5;
     }
 
-    @media(max-width: 800px) {
+    @media (max-width: 900px) {
       .container {
-        flex-direction: column;
+        flex-wrap: wrap; /* Bei schmalem Viewport untereinander */
       }
-
       .preview, .options {
-        flex: 1 1 100%;
+        flex: 0 0 100%;
       }
     }
   </style>
 </head>
+
 <body>
 
   <div id="site-header"></div>
 
   <div class="container">
-
     <div class="preview">
       <div class="mockup">
-        <img id="mockup-bg" class="bg" src="poster-mockup.png" alt="Mockup Hintergrund">
+        <img id="mockup-bg" class="bg" src="poster-mockup.png" alt="Mockup">
         <img id="preview" class="generated" src="" alt="Dein Bild">
       </div>
     </div>
 
     <div class="options">
-      <h1>Dein Wandbild</h1>
+      <h1>Wähle dein Produkt</h1>
 
       <div class="option-group">
         <label for="product">Produktart:</label>
@@ -146,19 +144,16 @@
       </div>
 
       <div class="price-box">
-        <strong>Preis:</strong> ab 19,99 € <br>
-        Lieferzeit: ca. 3–5 Werktage
+        <strong>Preis:</strong> ab 19,99 €
       </div>
 
       <button id="nextBtn" class="btn">Weiter</button>
     </div>
-
   </div>
 
   <div id="site-footer"></div>
 
   <script>
-    // Header & Footer laden
     fetch("header.html")
       .then(res => res.text())
       .then(data => document.getElementById("site-header").innerHTML = data);
@@ -167,58 +162,31 @@
       .then(res => res.text())
       .then(data => document.getElementById("site-footer").innerHTML = data);
 
-    // Bild-Handling
     const preview = document.getElementById("preview");
     const mockupBg = document.getElementById("mockup-bg");
+    const imageUrl = localStorage.getItem("generatedImage") || "https://res.cloudinary.com/dntk0kj6v/image/upload/v1751141888/Platzhalter_sgzfyc.png";
+    preview.src = imageUrl;
+
     const productSelect = document.getElementById("product");
-    const sizeSelect = document.getElementById("size");
-    const nextBtn = document.getElementById("nextBtn");
-
-    const placeholderUrl = "https://res.cloudinary.com/dntk0kj6v/image/upload/v1751141888/Platzhalter_sgzfyc.png";
-    const imageUrl = localStorage.getItem("generatedImage");
-
-    if (imageUrl) {
-      preview.src = imageUrl;
-    } else {
-      preview.src = placeholderUrl;
-      localStorage.setItem("generatedImage", placeholderUrl);
-    }
-
     productSelect.addEventListener("change", () => {
-      const product = productSelect.value;
-      if (product === "poster") {
-        mockupBg.src = "poster-mockup.png";
-      } else {
-        mockupBg.src = "leinwand-mockup.png";
-      }
+      mockupBg.src = productSelect.value === "poster" ? "poster-mockup.png" : "leinwand-mockup.png";
     });
 
+    const nextBtn = document.getElementById("nextBtn");
     nextBtn.addEventListener("click", () => {
       const product = productSelect.value;
-      const size = sizeSelect.value;
-
-      let variantId = 0;
-      if (product === "poster") {
-        if (size === "A3") variantId = 11111;
-        if (size === "A2") variantId = 22222;
-        if (size === "A1") variantId = 33333;
-      } else {
-        if (size === "A3") variantId = 44444;
-        if (size === "A2") variantId = 55555;
-        if (size === "A1") variantId = 66666;
-      }
+      const size = document.getElementById("size").value;
 
       localStorage.setItem("selectedProduct", product);
       localStorage.setItem("selectedSize", size);
-      localStorage.setItem("selectedVariantId", variantId);
 
-      alert(`Du hast gewählt: ${product} in ${size} (ID ${variantId})`);
-      // window.location.href = "checkout.html";
+      alert(`Du hast ${product} in ${size} gewählt.`);
     });
   </script>
 
 </body>
 </html>
+
 
 
 
