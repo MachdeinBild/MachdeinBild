@@ -1,5 +1,8 @@
 <header>
   <img src="https://res.cloudinary.com/dntk0kj6v/image/upload/v1750767227/Logo1_qdtgt9.png" alt="MachDeinBild Logo">
+
+  <div class="spacer"></div>
+
   <nav>
     <a href="index.html">Startseite</a>
     <a href="about.html">Über Uns</a>
@@ -21,20 +24,24 @@
     background: white;
     width: 100%;
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    padding: 10px 40px;  /* Solide Ränder */
+    padding: 10px 40px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
   }
 
   header img {
-    height: 120px; /* Dein normales Logo */
+    height: 120px;
     width: auto;
   }
 
+  .spacer {
+    flex: 1;  /* DAS ist der Abstandshalter! */
+  }
+
   nav {
-    text-align: right;
-    margin-right: -40px; /* FIX: Schiebt die Navi 40px nach links */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
   }
 
   nav a {
@@ -51,6 +58,7 @@
     color: #0078d4;
   }
 </style>
+
 
 
 
