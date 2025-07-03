@@ -75,13 +75,16 @@
     }
 
     .gallery-wrapper {
-      display: flex;
       overflow: hidden;
       width: 100%;
       background: #fff;
       padding: 20px 0;
       box-shadow: inset 0 -1px 0 #ddd;
-      animation: slideLeftRight 30s linear infinite;
+    }
+
+    .track {
+      display: flex;
+      animation: slideLeftRight 40s linear infinite;
     }
 
     @keyframes slideLeftRight {
@@ -129,8 +132,10 @@
     <div id="preview"></div>
   </main>
 
-  <!-- Automatisch geladene Galerie -->
-  <div class="gallery-wrapper" id="index-gallery"></div>
+  <!-- Automatische Galerie -->
+  <div class="gallery-wrapper">
+    <div class="track" id="index-gallery"></div>
+  </div>
 
   <div id="site-footer"></div>
 
@@ -179,14 +184,14 @@
       .then(res => res.json())
       .then(data => {
         const wrapper = document.getElementById("index-gallery");
-        data.concat(data).forEach(img => { // doppelt für Endlosschleife
+        const loopData = data.concat(data); // doppelte Liste für Endlosschleife
+
+        loopData.forEach(img => {
           const container = document.createElement("div");
           container.className = "image-container";
-
           const image = document.createElement("img");
           image.src = img.secure_url;
           container.appendChild(image);
-
           wrapper.appendChild(container);
         });
       });
@@ -194,6 +199,7 @@
 
 </body>
 </html>
+
 
 
 
