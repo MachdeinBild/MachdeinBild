@@ -34,6 +34,7 @@
       position: relative;
       max-width: 100%;
       max-height: 80vh;
+      min-height: 400px; /* Fix, damit Platzhalter Platz hat */
     }
 
     .mockup img.bg {
@@ -52,7 +53,6 @@
       box-shadow: 0 0 5px rgba(0,0,0,0.1);
     }
 
-    /* FIX: Platzhalter zeigt immer komplett */
     .mockup img.generated.placeholder {
       position: static !important;
       top: auto !important;
@@ -189,7 +189,7 @@
       .then(res => res.text())
       .then(data => document.getElementById("site-footer").innerHTML = data);
 
-    // Bild-Logik mit Debug
+    // Bild-Logik
     const preview = document.getElementById("preview");
     const mockupBg = document.getElementById("mockup-bg");
     const imageUrl = localStorage.getItem("generatedImage");
@@ -200,7 +200,7 @@
       preview.src = imageUrl;
       preview.classList.remove('placeholder');
     } else {
-      preview.classList.add('placeholder'); // bleibt fallback
+      preview.classList.add('placeholder'); // optional redundant, schadet nicht
     }
 
     // Mockup wechseln
@@ -227,6 +227,7 @@
 
 </body>
 </html>
+
 
 
 
