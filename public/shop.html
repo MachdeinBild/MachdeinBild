@@ -32,9 +32,13 @@
 
     .mockup {
       position: relative;
-      max-width: 100%;
-      max-height: 80vh;
-      min-height: 400px; /* Fix, damit Platzhalter Platz hat */
+      width: 100%;
+      max-width: 600px;
+      min-height: 400px;
+      background: #fff; /* Optional, damit man es sieht */
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
     .mockup img.bg {
@@ -57,9 +61,13 @@
       position: static !important;
       top: auto !important;
       left: auto !important;
-      width: 100% !important;
+      width: auto !important;
+      max-width: 100% !important;
       height: auto !important;
+      max-height: 100% !important;
       object-fit: contain !important;
+      display: block;
+      margin: 0 auto;
       border: none !important;
       box-shadow: none !important;
     }
@@ -200,7 +208,7 @@
       preview.src = imageUrl;
       preview.classList.remove('placeholder');
     } else {
-      preview.classList.add('placeholder'); // optional redundant, schadet nicht
+      preview.classList.add('placeholder');
     }
 
     // Mockup wechseln
@@ -227,6 +235,7 @@
 
 </body>
 </html>
+
 
 
 
