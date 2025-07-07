@@ -122,4 +122,82 @@ app.post("/contact", async (req, res) => {
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => console.log(`✅ Server läuft auf Port ${PORT}`));
 
+// Neue Bestellung: an Printful schicken
+app.post("/api/create-order", async (req, res) => {
+  const { product, size, imageUrl, recipient } = req.body;
+
+  console.log("Neue Bestellung:", product, size, imageUrl, recipient);
+
+  if (!product || !size || !imageUrl || !recipient) {
+    return res.status(400).json({ error: "Fehlende Daten für Bestellung." });
+  }
+
+  // ➜ Wähle deine Printful Variant-ID je nach Produkt + Größe
+  // Beispiel: Diese IDs musst du anpassen!
+  let variant_id = null;
+
+  if (product === "poster") {
+    if (size === "A3") variant_id = 4012;
+    if (size === "A2") variant_id = 4013;
+    if (size === "A1") variant_id = 4014;
+  } else if (product === "leinwand") {
+    if (size === "A3") variant_id = 5012;
+    if (size === "A2") variant_id = 5013;
+    if (size === "A1") variant_id = 5014;
+  }
+
+  if (!variant_id) {
+    return res.status(400).json({ error: "Ungültige Produkt-/Größen-Kombination." });
+  }
+
+  // Baue Printful-Bestellung
+  const printfulOrder = {
+    recipient: {
+      name: recipient.name,
+      address1: recipient.address1,
+      city: recipient.city,
+      country_code: recipient.country_code || "DE",
+      zip: recipient.zip,
+      email: recipient.email,
+    },
+    items: [
+      {
+        variant_id: variant_id,
+        quantity: 1,
+        files: [
+          { url: imageUrl },
+        ],
+      },
+    ],
+  };
+
+  try {
+    const response = await fetch("https://api.printful.com/orders", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization:
+          "Basic " +
+          Buffer.from(process.env.PRINTFUL_API_KEY + ":").toString("base64"),
+      },
+      body: JSON.stringify(printfulOrder),
+    });
+
+    const data = await response.json();
+
+    if (!response.ok) {
+      console.error("Printful-Fehler:", data);
+      return res.status(500).json({ error: "Printful API Fehler", details: data });
+    }
+
+    console.log("✅ Printful-Bestellung erstellt:", data);
+    res.json({ success: true, printful: data });
+
+  } catch (err) {
+    console.error("Fehler bei Printful-Call:", err);
+    res.status(500).json({ error: "Server-Fehler bei Printful." });
+  }
+});
+
+
 
