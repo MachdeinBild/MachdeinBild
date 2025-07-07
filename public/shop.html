@@ -3,153 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <title>Mach Dein Bild – Shop</title>
-  <style>
-    html, body {
-      margin: 0;
-      padding: 0;
-      height: 100%;
-      font-family: Arial, sans-serif;
-      background: #f5f5f5;
-    }
-
-    .wrapper {
-      display: flex;
-      flex-direction: column;
-      min-height: 100vh;
-    }
-
-    .container {
-      flex: 1;
-      display: flex;
-      flex-wrap: nowrap;
-      max-width: 1200px;
-      margin: 40px auto;
-      background: #fff;
-      border-radius: 12px;
-      box-shadow: 0 0 20px rgba(0,0,0,0.05);
-      overflow: visible;
-    }
-
-    .preview {
-      flex: 0 0 50%;
-      padding: 40px;
-      background: #fafafa;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .mockup {
-      position: relative;
-      max-width: 100%;
-      max-height: 80vh;
-    }
-
-    .mockup img.bg {
-      width: 100%;
-      border-radius: 8px;
-    }
-
-    .mockup img.generated {
-      position: absolute;
-      top: 10%;
-      left: 10%;
-      width: 80%;
-      height: 80%;
-      object-fit: cover;
-      border: 2px solid #eee;
-      box-shadow: 0 0 5px rgba(0,0,0,0.1);
-    }
-
-    .mockup img.generated.placeholder {
-      position: static !important;
-      top: auto !important;
-      left: auto !important;
-      width: 100% !important;
-      height: auto !important;
-      object-fit: contain !important;
-      border: none !important;
-      box-shadow: none !important;
-    }
-
-    .options {
-      flex: 0 0 50%;
-      padding: 40px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      max-width: 400px;
-      margin: 0 auto;
-    }
-
-    .options h1 {
-      margin-top: 0;
-    }
-
-    .option-group {
-      margin-bottom: 30px;
-    }
-
-    .option-group label {
-      display: block;
-      margin-bottom: 8px;
-      font-weight: 600;
-    }
-
-    select {
-      width: 100%;
-      padding: 12px;
-      font-size: 1rem;
-      border: 1px solid #ccc;
-      border-radius: 6px;
-      background: #fff;
-    }
-
-    .price-box {
-      font-size: 1.2rem;
-      margin-bottom: 30px;
-    }
-
-    .btn {
-      width: 100%;
-      padding: 15px;
-      background: #0071e3;
-      color: #fff;
-      border: none;
-      border-radius: 8px;
-      font-size: 1.1rem;
-      cursor: pointer;
-      transition: background 0.2s ease;
-    }
-
-    .btn:hover {
-      background: #005bb5;
-    }
-
-    #site-footer {
-      background: #fafafa;
-      text-align: center;
-      padding: 20px;
-      font-size: 0.9rem;
-      color: #555;
-      width: 100%;
-      box-sizing: border-box;
-    }
-
-    @media (max-width: 900px) {
-      .container {
-        flex-wrap: wrap;
-      }
-
-      .preview,
-      .options {
-        flex: 0 0 100%;
-        max-width: 100%;
-      }
-    }
-  </style>
+  <link rel="stylesheet" href="css/layout.css">
 </head>
-
 <body>
   <div class="wrapper">
 
@@ -158,11 +13,8 @@
     <div class="container">
       <div class="preview">
         <div class="mockup">
-          <img id="mockup-bg" class="bg" src="poster-mockup.png" alt="Mockup Hintergrund">
-          <img id="preview"
-               class="generated placeholder"
-               src="https://res.cloudinary.com/dntk0kj6v/image/upload/v1751542396/Platzhalter_ds7tj4.png"
-               alt="Dein Bild">
+          <img class="bg" src="images/poster-mockup.png" alt="Mockup Hintergrund">
+          <img class="generated placeholder" src="images/platzhalter.png" alt="Dein Bild">
         </div>
       </div>
 
@@ -198,9 +50,11 @@
 
   </div>
 
-  <script src="shop.js"></script>
+  <script src="js/loadLayout.js"></script>
+  <script src="js/shop.js"></script>
 </body>
 </html>
+
 
 
 
