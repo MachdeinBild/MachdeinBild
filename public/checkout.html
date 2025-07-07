@@ -2,10 +2,9 @@
 <html lang="de">
 <head>
   <meta charset="UTF-8" />
-  <title>Lieferung</title>
+  <title>Mach Dein Bild – Checkout</title>
   <link rel="stylesheet" href="css/layout.css">
   <style>
-    /* Spezielles Layout für nebeneinander-Felder */
     .form-row {
       display: flex;
       gap: 20px;
@@ -15,7 +14,8 @@
       flex: 1;
       min-width: 150px;
     }
-    .gender-options label {
+    .gender-options label,
+    .payment-options label {
       margin-right: 20px;
     }
   </style>
@@ -30,7 +30,6 @@
     <div class="container">
       <div class="preview">
         <div class="mockup">
-          <!-- Nur das Bild -->
           <img 
             id="previewImage"
             class="generated placeholder"
@@ -43,7 +42,7 @@
         <h1>Lieferdetails</h1>
         <p>Gib deine Lieferadresse ein:</p>
 
-        <form>
+        <form id="checkoutForm">
           <div class="form-row">
             <div class="option-group">
               <label for="firstName">Vorname*</label>
@@ -86,6 +85,15 @@
           </div>
 
           <div class="option-group">
+            <span>Geschlecht*</span><br>
+            <div class="gender-options">
+              <label><input type="radio" name="gender" value="Frau" required> Frau</label>
+              <label><input type="radio" name="gender" value="Mann"> Mann</label>
+              <label><input type="radio" name="gender" value="Divers"> Divers</label>
+            </div>
+          </div>
+
+          <div class="option-group">
             <label for="phone">Telefonnummer (optional)</label>
             <input type="tel" id="phone" placeholder="z. B. +49 123 456789">
           </div>
@@ -93,6 +101,16 @@
           <div class="option-group">
             <label for="email">E-Mail-Adresse*</label>
             <input type="email" id="email" placeholder="z. B. max@beispiel.de" required>
+          </div>
+
+          <!-- ✅ Zahlungsoptionen -->
+          <div class="option-group">
+            <span>Zahlungsart*</span><br>
+            <div class="payment-options">
+              <label><input type="radio" name="payment" value="PayPal" required> PayPal</label>
+              <label><input type="radio" name="payment" value="Kreditkarte"> Kreditkarte</label>
+              <label><input type="radio" name="payment" value="Sofort"> Sofortüberweisung</label>
+            </div>
           </div>
 
           <button type="submit" class="btn">Bestellung abschließen</button>
@@ -105,19 +123,40 @@
 
   </div>
 
-  <!-- ✅ Layout-Loader + Bild-Logik -->
+  <!-- ✅ Layout-Loader -->
   <script src="js/loadLayout.js"></script>
+
+  <!-- ✅ Validierungs-Logik -->
   <script>
-    // Beispiel: Wenn du ein generiertes Bild hast, kannst du es hier setzen
     const generatedImage = ''; // Dein generiertes Bild
     if (generatedImage) {
       const img = document.getElementById('previewImage');
       img.src = generatedImage;
       img.classList.remove('placeholder');
     }
+
+    // 🚦 Validierung
+    const form = document.getElementById('checkoutForm');
+    form.addEventListener('submit', function(e) {
+      // Prüfe ob mind. 1 Zahlungsart gewählt ist
+      const paymentOptions = document.querySelectorAll('input[name="payment"]');
+      let paymentSelected = false;
+      paymentOptions.forEach(opt => {
+        if (opt.checked) paymentSelected = true;
+      });
+
+      if (!paymentSelected) {
+        alert('Bitte wähle eine Zahlungsart aus.');
+        e.preventDefault();
+        return;
+      }
+
+      // Standard Browser Validierung übernimmt den Rest
+    });
   </script>
 </body>
 </html>
+
 
 
 
