@@ -1,3 +1,4 @@
+/* === Basis-Reset === */
 html, body {
   margin: 0;
   padding: 0;
@@ -6,19 +7,27 @@ html, body {
   background: #f5f5f5;
 }
 
-header, footer {
-  background: #333;
-  color: #fff;
-  text-align: center;
-  padding: 20px 0;
-}
-
+/* === Wrapper um alles === */
 .wrapper {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
 }
 
+/* === Header & Footer === */
+header, footer, #site-footer {
+  background: #333;
+  color: #fff;
+  text-align: center;
+  padding: 20px 0;
+}
+
+#site-footer {
+  font-size: 0.9rem;
+  color: #ccc;
+}
+
+/* === Haupt-Container === */
 .container {
   flex: 1;
   display: flex;
@@ -28,9 +37,10 @@ header, footer {
   background: #fff;
   border-radius: 12px;
   box-shadow: 0 0 20px rgba(0,0,0,0.05);
-  overflow: visible;
+  overflow: hidden;
 }
 
+/* === Bildbereich === */
 .preview {
   flex: 0 0 50%;
   padding: 40px;
@@ -40,17 +50,29 @@ header, footer {
   justify-content: center;
 }
 
+/* === Mockup Container === */
 .mockup {
   position: relative;
-  max-width: 100%;
-  max-height: 80vh;
+  width: 100%;
+  max-width: 500px;      /* maximale Breite */
+  aspect-ratio: 3/4;     /* Seitenverhältnis: Poster-Format */
+  background: #ddd;      /* nur zur Not als Fallback */
+  border-radius: 8px;
+  overflow: hidden;
 }
 
+/* === Hintergrundbild === */
 .mockup img.bg {
+  position: absolute;
+  top: 0; left: 0;
   width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
   border-radius: 8px;
 }
 
+/* === Generiertes Bild === */
 .mockup img.generated {
   position: absolute;
   top: 10%;
@@ -62,17 +84,18 @@ header, footer {
   box-shadow: 0 0 5px rgba(0,0,0,0.1);
 }
 
+/* === Platzhalter-Regel === */
 .mockup img.generated.placeholder {
-  position: static !important;
-  top: auto !important;
-  left: auto !important;
+  top: 0;
+  left: 0;
   width: 100% !important;
-  height: auto !important;
+  height: 100% !important;
   object-fit: contain !important;
   border: none !important;
   box-shadow: none !important;
 }
 
+/* === Rechter Bereich (Formular/Content) === */
 .options {
   flex: 0 0 50%;
   padding: 40px;
@@ -85,6 +108,7 @@ header, footer {
 
 .options h1 {
   margin-top: 0;
+  font-size: 1.8rem;
 }
 
 .option-group {
@@ -130,13 +154,7 @@ select, input {
   background: #005bb5;
 }
 
-footer {
-  background: #333;
-  color: #fff;
-  text-align: center;
-  padding: 20px 0;
-}
-
+/* === Responsive Anpassung === */
 @media (max-width: 900px) {
   .container {
     flex-wrap: wrap;
@@ -147,4 +165,10 @@ footer {
     flex: 0 0 100%;
     max-width: 100%;
   }
+
+  .mockup {
+    max-width: 90%;
+  }
 }
+
+
