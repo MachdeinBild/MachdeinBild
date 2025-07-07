@@ -6,6 +6,7 @@ document.getElementById("product").textContent = product;
 document.getElementById("size").textContent = size;
 document.getElementById("checkout-image").src = imageUrl;
 
+// Preisberechnung (Beispiel)
 let price = 19.99;
 if (size === "A2") price = 29.99;
 if (size === "A1") price = 39.99;
@@ -31,7 +32,14 @@ document.getElementById("buyBtn").addEventListener("click", async () => {
         product,
         size,
         imageUrl,
-        recipient: { name, address1: address, zip, city, country_code: "DE", email }
+        recipient: {
+          name,
+          address1: address,
+          zip,
+          city,
+          country_code: "DE",
+          email
+        }
       }),
     });
 
@@ -40,6 +48,7 @@ document.getElementById("buyBtn").addEventListener("click", async () => {
     window.location.href = "thankyou.html";
   } catch (err) {
     console.error(err);
-    alert("Bestellung fehlgeschlagen.");
+    alert("Es gab ein Problem mit deiner Bestellung.");
   }
 });
+
