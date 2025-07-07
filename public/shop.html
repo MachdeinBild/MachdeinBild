@@ -8,13 +8,19 @@
 <body>
   <div class="wrapper">
 
+    <!-- ✅ HEADER -->
     <div id="site-header"></div>
 
+    <!-- ✅ CONTAINER -->
     <div class="container">
       <div class="preview">
         <div class="mockup">
-          <img class="bg" src="images/poster-mockup.png" alt="Mockup Hintergrund">
-          <img class="generated placeholder" src="images/platzhalter.png" alt="Dein Bild">
+          <!-- Nur das Bild -->
+          <img 
+            id="previewImage"
+            class="generated placeholder"
+            src="https://res.cloudinary.com/dntk0kj6v/image/upload/v1751542396/Platzhalter_ds7tj4.png"
+            alt="Dein Bild">
         </div>
       </div>
 
@@ -46,14 +52,25 @@
       </div>
     </div>
 
+    <!-- ✅ FOOTER -->
     <div id="site-footer"></div>
 
   </div>
 
+  <!-- ✅ Layout-Loader + Logik -->
   <script src="js/loadLayout.js"></script>
-  <script src="js/shop.js"></script>
+  <script>
+    // Beispiel: Wenn du ein generiertes Bild hast, setze es so:
+    const generatedImage = ''; // Pfad zu deinem generierten Bild
+    if (generatedImage) {
+      const img = document.getElementById('previewImage');
+      img.src = generatedImage;
+      img.classList.remove('placeholder');
+    }
+  </script>
 </body>
 </html>
+
 
 
 
