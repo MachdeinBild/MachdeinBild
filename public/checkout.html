@@ -3,11 +3,83 @@
 <head>
   <meta charset="UTF-8" />
   <title>Mach Dein Bild – Checkout</title>
-  <link rel="stylesheet" href="style.css" />
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f5f5f5;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 40px auto;
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.05);
+      padding: 40px;
+    }
+
+    h1 {
+      margin-top: 0;
+    }
+
+    .preview {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .preview img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    .details {
+      font-size: 1.1rem;
+      margin-bottom: 30px;
+    }
+
+    .details p {
+      margin: 5px 0;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-group input {
+      width: 100%;
+      padding: 12px;
+      font-size: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      background: #fff;
+    }
+
+    .btn {
+      display: inline-block;
+      width: 100%;
+      padding: 15px;
+      background: #0071e3;
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      font-size: 1.1rem;
+      cursor: pointer;
+      transition: background 0.2s ease;
+      text-align: center;
+    }
+
+    .btn:hover {
+      background: #005bb5;
+    }
+  </style>
 </head>
+
 <body>
   <div class="container">
-    <h1>Checkout</h1>
+    <h1>Dein Checkout</h1>
 
     <div class="preview">
       <img id="checkout-image" src="" alt="Dein Bild">
@@ -19,13 +91,21 @@
       <p><strong>Preis:</strong> <span id="price"></span></p>
     </div>
 
-    <h2>Deine Adresse</h2>
-
-    <input id="name" type="text" placeholder="Name" /><br/>
-    <input id="address" type="text" placeholder="Adresse" /><br/>
-    <input id="zip" type="text" placeholder="PLZ" /><br/>
-    <input id="city" type="text" placeholder="Stadt" /><br/>
-    <input id="email" type="email" placeholder="E-Mail" /><br/>
+    <div class="form-group">
+      <input id="name" type="text" placeholder="Dein Name">
+    </div>
+    <div class="form-group">
+      <input id="address" type="text" placeholder="Adresse">
+    </div>
+    <div class="form-group">
+      <input id="zip" type="text" placeholder="PLZ">
+    </div>
+    <div class="form-group">
+      <input id="city" type="text" placeholder="Stadt">
+    </div>
+    <div class="form-group">
+      <input id="email" type="email" placeholder="E-Mail">
+    </div>
 
     <button id="buyBtn" class="btn">Jetzt kaufen</button>
   </div>
@@ -33,3 +113,4 @@
   <script src="checkout.js"></script>
 </body>
 </html>
+
