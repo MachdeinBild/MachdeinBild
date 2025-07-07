@@ -1,71 +1,46 @@
-<!DOCTYPE html>
-<html lang="de">
-<head>
-  <meta charset="UTF-8" />
-  <title>Mach Dein Bild – Checkout</title>
-  <link rel="stylesheet" href="css/layout.css">
-</head>
-<body>
-  <div class="wrapper">
+<div class="options">
+  <h1>Lieferdetails</h1>
+  <p>Gib deine Lieferadresse ein:</p>
 
-    <!-- ✅ HEADER -->
-    <div id="site-header"></div>
-
-    <!-- ✅ CONTAINER -->
-    <div class="container">
-      <div class="preview">
-        <div class="mockup">
-          <!-- Nur das Bild -->
-          <img 
-            id="previewImage"
-            class="generated placeholder"
-            src="https://res.cloudinary.com/dntk0kj6v/image/upload/v1751542396/Platzhalter_ds7tj4.png"
-            alt="Dein Bild">
-        </div>
-      </div>
-
-      <div class="options">
-        <h1>Lieferdetails</h1>
-
-        <form>
-          <div class="option-group">
-            <label for="name">Name:</label>
-            <input type="text" id="name" placeholder="Dein Name" required>
-          </div>
-
-          <div class="option-group">
-            <label for="email">E-Mail:</label>
-            <input type="email" id="email" placeholder="Deine E-Mail" required>
-          </div>
-
-          <div class="option-group">
-            <label for="address">Adresse:</label>
-            <input type="text" id="address" placeholder="Deine Adresse" required>
-          </div>
-
-          <button type="submit" class="btn">Bestellung abschließen</button>
-        </form>
-      </div>
+  <form>
+    <div class="option-group">
+      <label for="firstName">Vorname*</label>
+      <input type="text" id="firstName" placeholder="Vorname" required>
     </div>
 
-    <!-- ✅ FOOTER -->
-    <div id="site-footer"></div>
+    <div class="option-group">
+      <label for="lastName">Nachname*</label>
+      <input type="text" id="lastName" placeholder="Nachname" required>
+    </div>
 
-  </div>
+    <div class="option-group">
+      <label for="street">Straße*</label>
+      <input type="text" id="street" placeholder="Straße" required>
+    </div>
 
-  <!-- ✅ Layout-Loader + Bild-Logik -->
-  <script src="js/loadLayout.js"></script>
-  <script>
-    // Beispiel: Wenn du ein generiertes Bild hast, setze es:
-    const generatedImage = ''; // Dein generiertes Bild, wenn vorhanden
-    if (generatedImage) {
-      const img = document.getElementById('previewImage');
-      img.src = generatedImage;
-      img.classList.remove('placeholder');
-    }
-  </script>
-</body>
-</html>
+    <div class="option-group">
+      <label for="houseNumber">Hausnummer*</label>
+      <input type="text" id="houseNumber" placeholder="Nr." required>
+    </div>
+
+    <div class="option-group">
+      <label for="zip">PLZ*</label>
+      <input type="text" id="zip" placeholder="PLZ" required>
+    </div>
+
+    <div class="option-group">
+      <label for="city">Ort*</label>
+      <input type="text" id="city" placeholder="Ort" required>
+    </div>
+
+    <div class="option-group">
+      <label for="birthday">Geburtsdatum*</label>
+      <input type="date" id="birthday" required>
+    </div>
+
+    <div class="option-group">
+      <label for="phone">Telefonnummer (optional)</label>
+
 
 
 
