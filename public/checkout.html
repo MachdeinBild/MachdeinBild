@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <title>Mach Dein Bild – Checkout</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>Checkout</h1>
+
+    <div class="preview">
+      <img id="checkout-image" src="" alt="Dein Bild">
+    </div>
+
+    <div class="details">
+      <p><strong>Produkt:</strong> <span id="product"></span></p>
+      <p><strong>Größe:</strong> <span id="size"></span></p>
+      <p><strong>Preis:</strong> <span id="price"></span></p>
+    </div>
+
+    <h2>Deine Adresse</h2>
+
+    <input id="name" type="text" placeholder="Name" /><br/>
+    <input id="address" type="text" placeholder="Adresse" /><br/>
+    <input id="zip" type="text" placeholder="PLZ" /><br/>
+    <input id="city" type="text" placeholder="Stadt" /><br/>
+    <input id="email" type="email" placeholder="E-Mail" /><br/>
+
+    <button id="buyBtn" class="btn">Jetzt kaufen</button>
+  </div>
+
+  <script src="checkout.js"></script>
+</body>
+</html>
