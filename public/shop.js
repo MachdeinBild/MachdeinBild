@@ -12,6 +12,8 @@ const preview = document.getElementById("preview");
 const mockupBg = document.getElementById("mockup-bg");
 const imageUrl = localStorage.getItem("generatedImage");
 
+console.log("Gefundene Image-URL:", imageUrl);
+
 if (imageUrl) {
   preview.src = imageUrl;
   preview.classList.remove('placeholder');
@@ -27,7 +29,7 @@ productSelect.addEventListener("change", () => {
     : "leinwand-mockup.png";
 });
 
-// Weiter
+// Weiter-Button
 const nextBtn = document.getElementById("nextBtn");
 nextBtn.addEventListener("click", () => {
   const product = productSelect.value;
@@ -38,4 +40,5 @@ nextBtn.addEventListener("click", () => {
 
   window.location.href = "checkout.html";
 });
+
 
