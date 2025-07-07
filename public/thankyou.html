@@ -4,13 +4,22 @@
   <meta charset="UTF-8" />
   <title>Vielen Dank!</title>
   <style>
-    body {
+    html, body {
       margin: 0;
+      padding: 0;
+      height: 100%;
       font-family: Arial, sans-serif;
       background: #f5f5f5;
     }
 
+    .wrapper {
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
     .container {
+      flex: 1;
       max-width: 600px;
       margin: 100px auto;
       background: #fff;
@@ -23,18 +32,28 @@
     h1 {
       margin-top: 0;
     }
+
+    #site-footer {
+      background: #fafafa;
+      text-align: center;
+      padding: 20px;
+      font-size: 0.9rem;
+      color: #555;
+    }
   </style>
 </head>
 
 <body>
-  <div id="site-header"></div>
+  <div class="wrapper">
+    <div id="site-header"></div>
 
-  <div class="container">
-    <h1>Vielen Dank!</h1>
-    <p>Deine Bestellung wurde erfolgreich übermittelt.<br>Dein Bild wird jetzt produziert und zu dir geliefert.</p>
+    <div class="container">
+      <h1>Vielen Dank!</h1>
+      <p>Deine Bestellung wurde erfolgreich übermittelt.<br>Dein Bild wird jetzt produziert und zu dir geliefert.</p>
+    </div>
+
+    <div id="site-footer"></div>
   </div>
-
-  <div id="site-footer"></div>
 
   <script>
     // Header & Footer laden
@@ -48,4 +67,5 @@
   </script>
 </body>
 </html>
+
 
