@@ -29,7 +29,7 @@
     }
 
     .preview img {
-      max-width: 100%;
+      max-width: 50%; /* Dein Wunsch: 50% kleiner */
       height: auto;
       border-radius: 8px;
       box-shadow: 0 0 10px rgba(0,0,0,0.1);
@@ -78,8 +78,10 @@
 </head>
 
 <body>
+  <div id="site-header"></div>
+
   <div class="container">
-    <h1>Dein Checkout</h1>
+    <h1>Checkout</h1>
 
     <div class="preview">
       <img id="checkout-image" src="" alt="Dein Bild">
@@ -110,7 +112,10 @@
     <button id="buyBtn" class="btn">Jetzt kaufen</button>
   </div>
 
+  <div id="site-footer"></div>
+
   <script src="checkout.js"></script>
 </body>
 </html>
+
 
