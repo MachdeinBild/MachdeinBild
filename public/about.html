@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Über Uns - MachDeinBild</title>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="layout.css"> <!-- Header-Styles global -->
   <style>
     body {
       font-family: 'Roboto', sans-serif;
@@ -13,31 +14,6 @@
       padding: 0;
       box-sizing: border-box;
       background-color: #f4f4f9;
-    }
-
-    header {
-      background-color: white;
-      padding: 20px 40px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    }
-
-    header img {
-      height: 150px; /* Vergrößertes Logo */
-    }
-
-    nav a {
-      margin: 0 15px;
-      text-decoration: none;
-      color: #333;
-      font-weight: 500;
-      transition: color 0.3s ease;
-    }
-
-    nav a:hover {
-      color: #0078d4;
     }
 
     section {
@@ -65,15 +41,18 @@
       display: flex;
       justify-content: space-around;
       margin-bottom: 40px;
+      flex-wrap: wrap;
+      gap: 20px;
     }
 
     .about-item {
-      width: 30%;
+      flex: 1 1 300px;
       background-color: #fff;
       padding: 20px;
       box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
       border-radius: 10px;
       text-align: center;
+      max-width: 350px;
     }
 
     .about-item h3 {
@@ -92,53 +71,42 @@
       height: 50px;
       margin-bottom: 20px;
     }
-
-    footer {
-      background-color: #333;
-      color: white;
-      text-align: center;
-      padding: 20px;
-    }
   </style>
 </head>
 <body>
-    <div id="site-header"></div>
+  <div id="site-header"></div>
 
   <section>
     <h2>Über MachDeinBild</h2>
     <p>Willkommen bei MachDeinBild – der kreativen Plattform, auf der du deine eigenen einzigartigen Bilder mit nur wenigen Klicks erstellen kannst. Unsere fortschrittliche Technologie hilft dir dabei, deine Visionen in beeindruckende Kunstwerke zu verwandeln!</p>
-  
-    <!-- Abschnitt 1: Unser Ziel -->
+
     <div class="about-block">
       <div class="about-item">
         <img src="https://res.cloudinary.com/dntk0kj6v/image/upload/v1751542395/PR1_xm9sxc.png" alt="Ziel Icon">
         <h3>Unser Ziel</h3>
         <p>Unsere Mission ist es, jedem die Möglichkeit zu geben, seine kreative Seite auszuleben und außergewöhnliche Kunstwerke zu erschaffen. Mit unserer einfachen Benutzeroberfläche und KI-unterstützten Technologie kannst du in wenigen Minuten fantastische Bilder erstellen!</p>
       </div>
-      
-      <!-- Abschnitt 2: Unsere Technologie -->
+
       <div class="about-item">
         <img src="https://res.cloudinary.com/dntk0kj6v/image/upload/v1751542931/PR2_cthdba.png" alt="Technologie Icon">
         <h3>Unsere Technologie</h3>
         <p>Wir nutzen fortschrittliche Künstliche Intelligenz, um deine Textbeschreibungen in atemberaubende Bilder umzuwandeln. Unsere Technologie erkennt deine kreativen Ideen und setzt sie in Sekundenbruchteilen in visuelle Kunst um. Du musst kein Künstler sein, um beeindruckende Werke zu schaffen!</p>
       </div>
-      
-      <!-- Abschnitt 3: Unsere Kunden -->
+
       <div class="about-item">
         <img src="https://res.cloudinary.com/dntk0kj6v/image/upload/v1751543394/PR3_kzsb3l.png" alt="Kunden Icon">
         <h3>Unsere Kunden</h3>
-        <p>Mehr als **1000 zufriedene Kunden** haben bereits ihre einzigartigen Bilder mit uns erstellt. Egal ob für persönliche Projekte, Geschenke oder kommerzielle Zwecke – unsere Plattform bietet unendliche kreative Möglichkeiten!</p>
+        <p>Mehr als 1000 zufriedene Kunden haben bereits ihre einzigartigen Bilder mit uns erstellt. Egal ob für persönliche Projekte, Geschenke oder kommerzielle Zwecke – unsere Plattform bietet unendliche kreative Möglichkeiten!</p>
       </div>
     </div>
 
-    <!-- Abschnitt 4: Deine Kreativität entfalten -->
     <div class="about-block">
       <h2>Entfalte deine Kreativität</h2>
       <p>Mit MachDeinBild kannst du ohne Vorkenntnisse in der Kunst Weltklasse-Bilder erstellen. Die Möglichkeiten sind endlos – von Landschaften bis hin zu abstrakten Kunstwerken, von klassischen Portraits bis zu futuristischen Designs. Erschaffe deine Vision und teile sie mit der Welt!</p>
     </div>
   </section>
 
- <div id="site-footer"></div>
+  <div id="site-footer"></div>
 
   <script>
     fetch("header.html")
@@ -149,6 +117,6 @@
       .then(res => res.text())
       .then(data => document.getElementById("site-footer").innerHTML = data);
   </script>
-
 </body>
 </html>
+
