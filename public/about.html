@@ -51,7 +51,7 @@
     }
 
     .about-item img {
-      width: 150px;
+      width: 60px;
       height: auto;
       margin-bottom: 15px;
     }
@@ -68,19 +68,28 @@
       line-height: 1.5;
     }
 
-    /* Extrablock Kunden + Icon */
+    /* Extra Block im Box-Stil */
     .customer-section {
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      padding: 20px;
       display: flex;
       align-items: center;
-      justify-content: center;
+      justify-content: space-between;
       gap: 30px;
       flex-wrap: wrap;
-      margin-top: 40px;
+      max-width: 100%;
     }
 
     .customer-text {
       max-width: 600px;
-      text-align: left;
+      text-align: center;
+      margin: 0 auto;
+    }
+
+    .customer-image {
+      flex-shrink: 0;
     }
 
     .customer-image img {
@@ -99,20 +108,20 @@
     <h2>Was wir bieten</h2>
     <p>Mit MachDeinBild bieten wir dir eine einfache Möglichkeit, aus deinen Ideen hochwertige Kunstwerke zu gestalten. Unsere KI erstellt beeindruckende Bilder nach deinen Vorstellungen, wir drucken sie in Premiumqualität und liefern schnell und sicher zu dir nach Hause.</p>
 
-    <!-- Block mit angeglichenen Texten -->
+    <!-- Drei Boxen -->
     <div class="about-block">
       
       <!-- 1: Unsere Technologie -->
       <div class="about-item">
         <img src="https://res.cloudinary.com/dntk0kj6v/image/upload/v1751542931/PR2_cthdba.png" alt="Technologie Icon">
-        <h3>Technologie</h3>
+        <h3>Unsere Technologie</h3>
         <p>Unsere moderne Künstliche Intelligenz verwandelt deine Ideen blitzschnell in beeindruckende Kunstwerke. Ganz gleich, ob es sich um Portraits, Landschaften oder abstrakte Designs handelt – unsere Technologie setzt deine Vision detailgetreu um und sorgt so für ein professionelles Ergebnis.</p>
       </div>
       
       <!-- 2: Unsere Druckqualität -->
       <div class="about-item">
         <img src="https://res.cloudinary.com/dntk0kj6v/image/upload/v1751542395/PR1_xm9sxc.png" alt="Druckqualität Icon">
-        <h3>Druckqualität</h3>
+        <h3>Unsere Druckqualität</h3>
         <p>Wir produzieren jedes Bild mit höchster Präzision auf Premium-Materialien wie Posterpapier, Leinwand oder Acrylglas. Jedes Kunstwerk überzeugt durch gestochen scharfe Details, satte Farben und eine langlebige Oberfläche, die dein Bild viele Jahre erstrahlen lässt.</p>
       </div>
       
@@ -124,7 +133,7 @@
       </div>
     </div>
 
-    <!-- Extra Block: Kunden-Text + Kunden-Icon -->
+    <!-- Extra Block: Kunden -->
     <div class="customer-section">
       <div class="customer-text">
         <h2>Unsere Kunden</h2>
@@ -152,5 +161,6 @@
 
 </body>
 </html>
+
 
 
