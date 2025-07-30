@@ -5,6 +5,11 @@ html, body {
   height: 100%;
   font-family: Arial, sans-serif;
   background: #f5f5f5;
+  box-sizing: border-box;
+}
+
+*, *::before, *::after {
+  box-sizing: inherit;
 }
 
 /* === Wrapper um alles === */
@@ -14,60 +19,59 @@ html, body {
   min-height: 100vh;
 }
 
-
-
-/* HEADER Super-Fix */
-#main-header,
-#main-header * {
-  all: unset;
-  display: revert;
-  box-sizing: border-box;
-}
-
+/* === Header === */
 #main-header {
-  background: white !important;
-  width: 100% !important;
-  height: 100px !important;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.1) !important;
-  position: sticky !important;
-  top: 0 !important;
-  z-index: 1000 !important;
-  display: flex !important;
-  justify-content: center !important;
+  background: white;
+  width: 100%;
+  height: 175px; /* für größeres Logo */
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
 }
 
 #main-header .header-container {
-  max-width: 1200px !important;
-  width: 100% !important;
-  display: flex !important;
-  align-items: center !important;
-  justify-content: space-between !important;
-  padding: 0 20px !important;
+  position: relative; /* für absolute Position der Nav */
+  max-width: 1200px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
+}
+
+/* Logo links */
+#main-header .logo {
+  flex-shrink: 0;
 }
 
 #main-header .logo img {
-  height: 80px !important;
-  width: auto !important;
+  height: 140px; /* 75% größer */
+  width: auto;
 }
 
+/* Navigation mittig im Viewport */
 #main-header nav {
-  display: flex !important;
-  gap: 25px !important;
-  align-items: center !important;
-  white-space: nowrap !important;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 25px;
+  align-items: center;
+  white-space: nowrap;
 }
 
 #main-header nav a {
-  font-size: 1.1rem !important;
-  font-weight: 600 !important;
-  color: #333 !important;
-  text-decoration: none !important;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #333;
+  text-decoration: none;
 }
 
 #main-header nav a:hover {
-  color: #0078d4 !important;
+  color: #0078d4;
 }
-
 
 /* === Footer === */
 footer, #site-footer {
@@ -88,7 +92,7 @@ footer, #site-footer {
   display: flex;
   flex-wrap: nowrap;
   width: 100%;
-  max-width: 1400px; /* mehr Luft, weniger abgeschnitten */
+  max-width: 1400px;
   margin: 40px auto;
   background: #fff;
   border-radius: 12px;
@@ -98,7 +102,7 @@ footer, #site-footer {
 
 /* === Bildbereich === */
 .preview {
-  flex: 1; /* flexibler als 50% fix */
+  flex: 1;
   padding: 40px;
   background: #fafafa;
   display: flex;
@@ -109,9 +113,9 @@ footer, #site-footer {
 /* === Mockup Container === */
 .mockup {
   width: 100%;
-  max-width: 600px;   /* größerer max-Rahmen */
-  aspect-ratio: 3/4;  /* Poster-Format */
-  background: #fafafa; /* fallback Farbe */
+  max-width: 600px;
+  aspect-ratio: 3/4;
+  background: #fafafa;
   border-radius: 8px;
   overflow: hidden;
 }
@@ -124,9 +128,9 @@ footer, #site-footer {
   display: block;
 }
 
-/* === Rechter Bereich (Formular/Content) === */
+/* === Rechter Bereich === */
 .options {
-  flex: 1; /* flexibler als fix 50% */
+  flex: 1;
   padding: 40px;
   display: flex;
   flex-direction: column;
@@ -184,6 +188,25 @@ select, input {
 
 /* === Responsive Anpassung === */
 @media (max-width: 900px) {
+  #main-header {
+    height: auto;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px 0;
+  }
+
+  #main-header .logo img {
+    height: 100px;
+  }
+
+  #main-header nav {
+    position: static;
+    transform: none;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 10px;
+  }
+
   .container {
     flex-wrap: wrap;
   }
@@ -198,4 +221,5 @@ select, input {
     max-width: 90%;
   }
 }
+
 
