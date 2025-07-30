@@ -15,6 +15,7 @@ html, body {
 }
 
 
+
 /* === HEADER === */
 header {
   background: white;
@@ -27,32 +28,28 @@ header {
 
 .header-container {
   max-width: 1200px;
-  height: 120px;
+  height: 100px;               /* Einheitliche Höhe */
   margin: 0 auto;
   padding: 0 20px;
   display: flex;
-  align-items: center;
-}
-
-.logo {
-  flex: 0 0 auto;
+  align-items: center;         /* Logo & Nav vertikal ausrichten */
+  justify-content: space-between; /* Logo links, Nav rechts */
 }
 
 .logo img {
-  height: 100px;
+  height: 80px;                /* Einheitliche Logo-Höhe */
   width: auto;
+  display: block;
 }
 
 nav {
-  flex: 1;
   display: flex;
-  justify-content: center;
-  gap: 25px;
-  white-space: nowrap;
+  gap: 25px;                   /* Abstand zwischen Links */
+  white-space: nowrap;         /* Kein Zeilenumbruch */
 }
 
 nav a {
-  font-size: 1.2rem;
+  font-size: 1.1rem;           /* Einheitliche Schriftgröße */
   font-weight: 600;
   color: #333;
   text-decoration: none;
@@ -62,6 +59,7 @@ nav a {
 nav a:hover {
   color: #0078d4;
 }
+
 
 
 /* === Footer === */
