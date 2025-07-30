@@ -19,11 +19,11 @@ html, body {
   min-height: 100vh;
 }
 
-/* === Header === */
+/* === HEADER === */
 #main-header {
   background: white;
   width: 100%;
-  height: 175px; /* für größeres Logo */
+  height: 140px; /* etwas schmaler */
   box-shadow: 0 2px 10px rgba(0,0,0,0.1);
   position: sticky;
   top: 0;
@@ -33,7 +33,7 @@ html, body {
 }
 
 #main-header .header-container {
-  position: relative; /* für absolute Position der Nav */
+  position: relative;
   max-width: 1200px;
   width: 100%;
   display: flex;
@@ -43,11 +43,11 @@ html, body {
 
 /* Logo links */
 #main-header .logo {
-  flex-shrink: 0;
+  margin-right: auto;
 }
 
 #main-header .logo img {
-  height: 140px; /* 75% größer */
+  height: 120px; /* angepasst an niedrigeren Header */
   width: auto;
 }
 
@@ -73,7 +73,7 @@ html, body {
   color: #0078d4;
 }
 
-/* === Footer === */
+/* === FOOTER === */
 footer, #site-footer {
   background: #333;
   color: #fff;
@@ -86,7 +86,7 @@ footer, #site-footer {
   color: #ccc;
 }
 
-/* === Haupt-Container === */
+/* === HAUPT-CONTAINER === */
 .container {
   flex: 1;
   display: flex;
@@ -100,7 +100,7 @@ footer, #site-footer {
   overflow: hidden;
 }
 
-/* === Bildbereich === */
+/* === BILDBEREICH === */
 .preview {
   flex: 1;
   padding: 40px;
@@ -110,7 +110,7 @@ footer, #site-footer {
   justify-content: center;
 }
 
-/* === Mockup Container === */
+/* === MOCKUP-CONTAINER === */
 .mockup {
   width: 100%;
   max-width: 600px;
@@ -120,7 +120,7 @@ footer, #site-footer {
   overflow: hidden;
 }
 
-/* === Generiertes Bild === */
+/* === GENERIERTES BILD === */
 .mockup img.generated {
   width: 100%;
   height: 100%;
@@ -128,7 +128,7 @@ footer, #site-footer {
   display: block;
 }
 
-/* === Rechter Bereich === */
+/* === RECHTER BEREICH === */
 .options {
   flex: 1;
   padding: 40px;
@@ -186,7 +186,7 @@ select, input {
   background: #005bb5;
 }
 
-/* === Responsive Anpassung === */
+/* === RESPONSIVE ANPASSUNG === */
 @media (max-width: 900px) {
   #main-header {
     height: auto;
@@ -196,7 +196,7 @@ select, input {
   }
 
   #main-header .logo img {
-    height: 100px;
+    height: 90px;
   }
 
   #main-header nav {
