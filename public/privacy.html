@@ -4,7 +4,14 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Datenschutz – MachDeinBild</title>
+  
+  <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  
+  <!-- Einheitliches Styling -->
+  <link rel="stylesheet" href="/css/layout.css">
+
+  <!-- Datenschutz-spezifische Styles -->
   <style>
     body {
       font-family: 'Roboto', sans-serif;
@@ -42,8 +49,10 @@
 </head>
 <body>
 
+  <!-- Header -->
   <div id="site-header"></div>
 
+  <!-- Datenschutz-Inhalt -->
   <main>
     <h1>Datenschutzerklärung</h1>
     <p>Wir freuen uns über dein Interesse an MachDeinBild. Der Schutz deiner personenbezogenen Daten ist uns sehr wichtig. Nachfolgend informieren wir dich ausführlich über den Umgang mit deinen Daten.</p>
@@ -71,8 +80,10 @@
     <p>Du hast ein Recht auf unentgeltliche Auskunft über die bei uns zu deiner Person gespeicherten Daten sowie ggf. ein Recht auf Berichtigung, Sperrung oder Löschung dieser Daten. Bei Fragen zur Erhebung, Verarbeitung oder Nutzung deiner personenbezogenen Daten wende dich bitte an uns.</p>
   </main>
 
+  <!-- Footer -->
   <div id="site-footer"></div>
 
+  <!-- Fetch Header & Footer -->
   <script>
     fetch("header.html")
       .then(res => res.text())
@@ -85,3 +96,4 @@
 
 </body>
 </html>
+
