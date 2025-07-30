@@ -3,17 +3,15 @@
     <div class="logo">
       <img src="https://res.cloudinary.com/dntk0kj6v/image/upload/v1750767227/Logo1_qdtgt9.png" alt="MachDeinBild Logo">
     </div>
-    <div class="nav-wrapper">
-      <nav>
-        <a href="index.html">Startseite</a>
-        <a href="about.html">Über&nbsp;Uns</a>
-        <a href="shop.html">Shop</a>
-        <a href="gallery.html">Galerie</a>
-        <a href="contact.html">Kontakt</a>
-        <a href="faq.html">FAQ</a>
-        <a href="imprint.html">Impressum</a>
-      </nav>
-    </div>
+    <nav>
+      <a href="index.html">Startseite</a>
+      <a href="about.html">Über&nbsp;Uns</a>
+      <a href="shop.html">Shop</a>
+      <a href="gallery.html">Galerie</a>
+      <a href="contact.html">Kontakt</a>
+      <a href="faq.html">FAQ</a>
+      <a href="imprint.html">Impressum</a>
+    </nav>
   </div>
 </header>
 
@@ -36,15 +34,14 @@
   .header-container {
     max-width: 1200px;
     margin: 0 auto;
-    height: 120px; /* Genug Platz fürs Logo */
+    padding: 15px 20px;
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    position: relative;
   }
 
   .logo {
     flex: 0 0 auto;
+    margin-right: 40px;
   }
 
   .logo img {
@@ -52,14 +49,10 @@
     width: auto;
   }
 
-  .nav-wrapper {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-  }
-
   nav {
+    flex: 1;
     display: flex;
+    justify-content: center; /* Zentriert Navigation */
     gap: 25px;
     white-space: nowrap;
   }
@@ -76,27 +69,10 @@
     color: #0078d4;
   }
 
-  /* Scroll Effekt */
+  /* Scroll-Effekt */
   .shrink .logo img {
-    height: 60px;
-  }
+    height: 60p
 
-  .shrink {
-    height: 80px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-  }
-</style>
-
-<script>
-  window.addEventListener("scroll", function () {
-    const header = document.getElementById("main-header");
-    if (window.scrollY > 50) {
-      header.classList.add("shrink");
-    } else {
-      header.classList.remove("shrink");
-    }
-  });
-</script>
 
 
 
