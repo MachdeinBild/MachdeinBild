@@ -4,13 +4,18 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Kontakt - MachDeinBild</title>
+  
+  <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  
+  <!-- Einheitliches Styling -->
+  <link rel="stylesheet" href="/css/layout.css">
+
   <style>
     body {
       font-family: 'Roboto', sans-serif;
       margin: 0;
       padding: 0;
-      box-sizing: border-box;
       background-color: #f4f4f9;
     }
 
@@ -44,6 +49,14 @@
       margin-right: auto;
     }
 
+    #contactForm label {
+      display: block;
+      text-align: left;
+      margin-bottom: 5px;
+      font-weight: 500;
+      color: #333;
+    }
+
     #contactForm input,
     #contactForm textarea {
       width: 100%;
@@ -62,19 +75,26 @@
       border: none;
       cursor: pointer;
       border-radius: 5px;
+      font-size: 1rem;
     }
 
-    footer {
-      background-color: #333;
-      color: white;
-      text-align: center;
-      padding: 20px;
+    #contactForm button:hover {
+      background-color: #005fa3;
+    }
+
+    #response {
+      margin-top: 10px;
+      font-size: 1rem;
+      color: #0078d4;
     }
   </style>
 </head>
 <body>
+
+  <!-- Header -->
   <div id="site-header"></div>
 
+  <!-- Kontakt -->
   <section>
     <h2>Kontakt</h2>
     <p>Wir freuen uns, von dir zu hören! Wenn du Fragen zu unseren Produkten, Dienstleistungen oder einfach nur Feedback hast, fülle bitte das untenstehende Formular aus. Wir werden uns so schnell wie möglich bei dir melden.</p>
@@ -97,9 +117,12 @@
     </div>
   </section>
 
+  <!-- Footer -->
   <div id="site-footer"></div>
 
+  <!-- Scripts -->
   <script>
+    // Header & Footer laden
     fetch("header.html")
       .then(res => res.text())
       .then(data => document.getElementById("site-header").innerHTML = data);
@@ -108,6 +131,7 @@
       .then(res => res.text())
       .then(data => document.getElementById("site-footer").innerHTML = data);
 
+    // Kontaktformular Handling
     const form = document.getElementById("contactFormInner");
     const responseBox = document.getElementById("response");
 
@@ -141,6 +165,6 @@
       }
     });
   </script>
+
 </body>
 </html>
-
