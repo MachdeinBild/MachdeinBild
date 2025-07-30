@@ -5,109 +5,141 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Über Uns - MachDeinBild</title>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/layout.css"> <!-- Header-Styles global -->
-  <style>
-    body {
-      font-family: 'Roboto', sans-serif;
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      background-color: #f4f4f9;
-    }
 
-    section {
-      padding: 60px 40px;
-      text-align: center;
+  <!-- Fonts & Layout -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/layout.css">
+
+  <style>
+    main {
+      padding: 60px 20px;
       max-width: 1200px;
       margin: 0 auto;
+      text-align: center;
     }
 
-    section h2 {
+    main h2 {
       font-size: 2rem;
-      color: #333;
       margin-bottom: 20px;
-      font-weight: 700;
+      color: #333;
     }
 
-    section p {
+    main p {
+      max-width: 900px;
+      margin: 0 auto 40px auto;
       color: #555;
       font-size: 1.1rem;
       line-height: 1.6;
-      margin-bottom: 30px;
     }
 
     .about-block {
       display: flex;
       justify-content: space-around;
-      margin-bottom: 40px;
       flex-wrap: wrap;
       gap: 20px;
+      margin-bottom: 40px;
     }
 
     .about-item {
-      flex: 1 1 300px;
-      background-color: #fff;
-      padding: 20px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      background: #fff;
       border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      padding: 20px;
+      width: 30%;
+      min-width: 250px;
       text-align: center;
-      max-width: 350px;
+    }
+
+    .about-item img {
+      width: 50px;
+      height: 50px;
+      margin-bottom: 15px;
     }
 
     .about-item h3 {
-      font-size: 1.5rem;
+      font-size: 1.3rem;
+      margin-bottom: 10px;
       color: #333;
-      margin-bottom: 15px;
     }
 
     .about-item p {
       font-size: 1rem;
       color: #555;
+      line-height: 1.5;
     }
 
-    .about-item img {
-      width: 150px;
-      height: 150px;
-      margin-bottom: 20px;
+    /* Extrablock Kunden + Lieferung Icon */
+    .customer-section {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 30px;
+      flex-wrap: wrap;
+      margin-top: 40px;
+    }
+
+    .customer-text {
+      max-width: 600px;
+      text-align: left;
+    }
+
+    .customer-image img {
+      width: 80px;
+      height: 80px;
     }
   </style>
 </head>
 <body>
+
+  <!-- Header -->
   <div id="site-header"></div>
 
-  <section>
+  <!-- About Content -->
+  <main>
     <h2>Über MachDeinBild</h2>
     <p>Willkommen bei MachDeinBild – der kreativen Plattform, auf der du deine eigenen einzigartigen Bilder mit nur wenigen Klicks erstellen kannst. Unsere fortschrittliche Technologie hilft dir dabei, deine Visionen in beeindruckende Kunstwerke zu verwandeln!</p>
 
+    <!-- Block mit neuer Reihenfolge & neuer Box -->
     <div class="about-block">
-      <div class="about-item">
-        <img src="https://res.cloudinary.com/dntk0kj6v/image/upload/v1751542395/PR1_xm9sxc.png" alt="Ziel Icon">
-        <h3>Unser Ziel</h3>
-        <p>Unsere Mission ist es, jedem die Möglichkeit zu geben, seine kreative Seite auszuleben und außergewöhnliche Kunstwerke zu erschaffen. Mit unserer einfachen Benutzeroberfläche und KI-unterstützten Technologie kannst du in wenigen Minuten fantastische Bilder erstellen!</p>
-      </div>
-
+      
+      <!-- 1: Unsere Technologie -->
       <div class="about-item">
         <img src="https://res.cloudinary.com/dntk0kj6v/image/upload/v1751542931/PR2_cthdba.png" alt="Technologie Icon">
         <h3>Unsere Technologie</h3>
-        <p>Wir nutzen fortschrittliche Künstliche Intelligenz, um deine Textbeschreibungen in atemberaubende Bilder umzuwandeln. Unsere Technologie erkennt deine kreativen Ideen und setzt sie in Sekundenbruchteilen in visuelle Kunst um. Du musst kein Künstler sein, um beeindruckende Werke zu schaffen!</p>
+        <p>Wir nutzen fortschrittliche Künstliche Intelligenz, um deine Textbeschreibungen in atemberaubende Bilder umzuwandeln. Unsere Technologie erkennt deine kreativen Ideen und setzt sie in Sekundenbruchteilen in visuelle Kunst um.</p>
       </div>
-
+      
+      <!-- 2: Unsere Druckqualität -->
       <div class="about-item">
-        <img src="https://res.cloudinary.com/dntk0kj6v/image/upload/v1751543394/PR3_kzsb3l.png" alt="Kunden Icon">
-        <h3>Unsere Kunden</h3>
+        <img src="https://res.cloudinary.com/dntk0kj6v/image/upload/v1751542395/PR1_xm9sxc.png" alt="Druckqualität Icon">
+        <h3>Unsere Druckqualität</h3>
+        <p>Wir drucken deine Kunstwerke auf hochwertigen Materialien wie Premium-Posterpapier, Leinwand oder Acrylglas. Jedes Bild besticht durch gestochen scharfe Details, brillante Farben und eine lange Haltbarkeit – für ein perfektes Ergebnis an deiner Wand.</p>
+      </div>
+      
+      <!-- 3: Lieferung -->
+      <div class="about-item">
+        <img id="delivery-icon" src="https://res.cloudinary.com/dntk0kj6v/image/upload/v1751544000/Delivery_Icon.png" alt="Lieferung Icon">
+        <h3>Lieferung</h3>
+        <p>Wir liefern deine Bestellung gut verpackt und in einwandfreiem Zustand. In der Regel erreicht dich dein Kunstwerk innerhalb von 2–3 Werktagen.</p>
+      </div>
+    </div>
+
+    <!-- Extra Block: Kunden-Text + Lieferung Icon -->
+    <div class="customer-section">
+      <div class="customer-text">
+        <h2>Unsere Kunden</h2>
         <p>Mehr als 1000 zufriedene Kunden haben bereits ihre einzigartigen Bilder mit uns erstellt. Egal ob für persönliche Projekte, Geschenke oder kommerzielle Zwecke – unsere Plattform bietet unendliche kreative Möglichkeiten!</p>
       </div>
+      <div class="customer-image">
+        <img src="https://res.cloudinary.com/dntk0kj6v/image/upload/v1751544000/Delivery_Icon.png" alt="Lieferung Icon">
+      </div>
     </div>
+  </main>
 
-    <div class="about-block">
-      <h2>Entfalte deine Kreativität</h2>
-      <p>Mit MachDeinBild kannst du ohne Vorkenntnisse in der Kunst Weltklasse-Bilder erstellen. Die Möglichkeiten sind endlos – von Landschaften bis hin zu abstrakten Kunstwerken, von klassischen Portraits bis zu futuristischen Designs. Erschaffe deine Vision und teile sie mit der Welt!</p>
-    </div>
-  </section>
-
+  <!-- Footer -->
   <div id="site-footer"></div>
 
+  <!-- Fetch Header/Footer -->
   <script>
     fetch("header.html")
       .then(res => res.text())
@@ -117,6 +149,314 @@
       .then(res => res.text())
       .then(data => document.getElementById("site-footer").innerHTML = data);
   </script>
+
 </body>
 </html>
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Über Uns - MachDeinBild</title>
+
+  <!-- Fonts & Layout -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/layout.css">
+
+  <style>
+    main {
+      padding: 60px 20px;
+      max-width: 1200px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    main h2 {
+      font-size: 2rem;
+      margin-bottom: 20px;
+      color: #333;
+    }
+
+    main p {
+      max-width: 900px;
+      margin: 0 auto 40px auto;
+      color: #555;
+      font-size: 1.1rem;
+      line-height: 1.6;
+    }
+
+    .about-block {
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+      gap: 20px;
+      margin-bottom: 40px;
+    }
+
+    .about-item {
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      padding: 20px;
+      width: 30%;
+      min-width: 250px;
+      text-align: center;
+    }
+
+    .about-item img {
+      width: 50px;
+      height: 50px;
+      margin-bottom: 15px;
+    }
+
+    .about-item h3 {
+      font-size: 1.3rem;
+      margin-bottom: 10px;
+      color: #333;
+    }
+
+    .about-item p {
+      font-size: 1rem;
+      color: #555;
+      line-height: 1.5;
+    }
+
+    /* Extrablock Kunden + Lieferung Icon */
+    .customer-section {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 30px;
+      flex-wrap: wrap;
+      margin-top: 40px;
+    }
+
+    .customer-text {
+      max-width: 600px;
+      text-align: left;
+    }
+
+    .customer-image img {
+      width: 80px;
+      height: 80px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <div id="site-header"></div>
+
+  <!-- About Content -->
+  <main>
+    
+    <p>Wir bieten dir eine kreative Plattform, auf der du deine eigenen einzigartigen Bilder mit nur wenigen Klicks erstellen kannst. Unsere fortschrittliche Technologie hilft dir dabei, deine Visionen in beeindruckende Kunstwerke zu verwandeln!</p>
+
+    <!-- Block mit neuer Reihenfolge & neuer Box -->
+    <div class="about-block">
+      
+      <!-- 1: Unsere Technologie -->
+      <div class="about-item">
+        <img src="https://res.cloudinary.com/dntk0kj6v/image/upload/v1751542931/PR2_cthdba.png" alt="Technologie Icon">
+        <h3>Technologie</h3>
+        <p>Wir nutzen fortschrittliche Künstliche Intelligenz, um deine Textbeschreibungen in atemberaubende Bilder umzuwandeln. Unsere Technologie erkennt deine kreativen Ideen und setzt sie in Sekundenbruchteilen in visuelle Kunst um.</p>
+      </div>
+      
+      <!-- 2: Unsere Druckqualität -->
+      <div class="about-item">
+        <img src="https://res.cloudinary.com/dntk0kj6v/image/upload/v1751542395/PR1_xm9sxc.png" alt="Druckqualität Icon">
+        <h3>Qualität</h3>
+        <p>Wir drucken deine Kunstwerke auf hochwertigen Materialien wie Premium-Posterpapier, Leinwand oder Acrylglas. Jedes Bild besticht durch gestochen scharfe Details, brillante Farben und eine lange Haltbarkeit.</p>
+      </div>
+      
+      <!-- 3: Lieferung -->
+      <div class="about-item">
+        <img id="delivery-icon" src="https://res.cloudinary.com/dntk0kj6v/image/upload/v1751544000/Delivery_Icon.png" alt="Lieferung Icon">
+        <h3>Lieferung</h3>
+        <p>Wir liefern deine Bestellung gut verpackt und in einwandfreiem Zustand. In der Regel erreicht dich dein Kunstwerk innerhalb von 2–3 Werktagen.</p>
+      </div>
+    </div>
+
+    <!-- Extra Block: Kunden-Text + Lieferung Icon -->
+    <div class="customer-section">
+      <div class="customer-text">
+        <h2>Unsere Kunden</h2>
+        <p>Mehr als 1000 zufriedene Kunden haben bereits ihre einzigartigen Bilder mit uns erstellt. Egal ob für persönliche Projekte, Geschenke oder kommerzielle Zwecke – unsere Plattform bietet unendliche kreative Möglichkeiten!</p>
+      </div>
+      <div class="customer-image">
+        <img src="https://res.cloudinary.com/dntk0kj6v/image/upload/v1751544000/Delivery_Icon.png" alt="Lieferung Icon">
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <div id="site-footer"></div>
+
+  <!-- Fetch Header/Footer -->
+  <script>
+    fetch("header.html")
+      .then(res => res.text())
+      .then(data => document.getElementById("site-header").innerHTML = data);
+
+    fetch("footer.html")
+      .then(res => res.text())
+      .then(data => document.getElementById("site-footer").innerHTML = data);
+  </script>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Über Uns - MachDeinBild</title>
+
+  <!-- Fonts & Layout -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/layout.css">
+
+  <style>
+    main {
+      padding: 60px 20px;
+      max-width: 1200px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    main h2 {
+      font-size: 2rem;
+      margin-bottom: 20px;
+      color: #333;
+    }
+
+    main p {
+      max-width: 900px;
+      margin: 0 auto 40px auto;
+      color: #555;
+      font-size: 1.1rem;
+      line-height: 1.6;
+    }
+
+    .about-block {
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+      gap: 20px;
+      margin-bottom: 40px;
+    }
+
+    .about-item {
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      padding: 20px;
+      width: 30%;
+      min-width: 250px;
+      text-align: center;
+    }
+
+    .about-item img {
+      width: 50px;
+      height: 50px;
+      margin-bottom: 15px;
+    }
+
+    .about-item h3 {
+      font-size: 1.3rem;
+      margin-bottom: 10px;
+      color: #333;
+    }
+
+    .about-item p {
+      font-size: 1rem;
+      color: #555;
+      line-height: 1.5;
+    }
+
+    /* Extrablock Kunden + Lieferung Icon */
+    .customer-section {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 30px;
+      flex-wrap: wrap;
+      margin-top: 40px;
+    }
+
+    .customer-text {
+      max-width: 600px;
+      text-align: left;
+    }
+
+    .customer-image img {
+      width: 80px;
+      height: 80px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <div id="site-header"></div>
+
+  <!-- About Content -->
+  <main>
+    <h2>Über MachDeinBild</h2>
+    <p>Willkommen bei MachDeinBild – der kreativen Plattform, auf der du deine eigenen einzigartigen Bilder mit nur wenigen Klicks erstellen kannst. Unsere fortschrittliche Technologie hilft dir dabei, deine Visionen in beeindruckende Kunstwerke zu verwandeln!</p>
+
+    <!-- Block mit neuer Reihenfolge & neuer Box -->
+    <div class="about-block">
+      
+      <!-- 1: Unsere Technologie -->
+      <div class="about-item">
+        <img src="https://res.cloudinary.com/dntk0kj6v/image/upload/v1751542931/PR2_cthdba.png" alt="Technologie Icon">
+        <h3>Unsere Technologie</h3>
+        <p>Wir nutzen fortschrittliche Künstliche Intelligenz, um deine Textbeschreibungen in atemberaubende Bilder umzuwandeln. Unsere Technologie erkennt deine kreativen Ideen und setzt sie in Sekundenbruchteilen in visuelle Kunst um.</p>
+      </div>
+      
+      <!-- 2: Unsere Druckqualität -->
+      <div class="about-item">
+        <img src="https://res.cloudinary.com/dntk0kj6v/image/upload/v1751542395/PR1_xm9sxc.png" alt="Druckqualität Icon">
+        <h3>Unsere Druckqualität</h3>
+        <p>Wir drucken deine Kunstwerke auf hochwertigen Materialien wie Premium-Posterpapier, Leinwand oder Acrylglas. Jedes Bild besticht durch gestochen scharfe Details, brillante Farben und eine lange Haltbarkeit – für ein perfektes Ergebnis an deiner Wand.</p>
+      </div>
+      
+      <!-- 3: Lieferung -->
+      <div class="about-item">
+        <img id="delivery-icon" src="https://res.cloudinary.com/dntk0kj6v/image/upload/v1751544000/Delivery_Icon.png" alt="Lieferung Icon">
+        <h3>Lieferung</h3>
+        <p>Wir liefern deine Bestellung gut verpackt und in einwandfreiem Zustand. In der Regel erreicht dich dein Kunstwerk innerhalb von 2–3 Werktagen.</p>
+      </div>
+    </div>
+
+    <!-- Extra Block: Kunden-Text + Lieferung Icon -->
+    <div class="customer-section">
+      <div class="customer-text">
+        <h2>Unsere Kunden</h2>
+        <p>Mehr als 1000 zufriedene Kunden haben bereits ihre einzigartigen Bilder mit uns erstellt. Egal ob für persönliche Projekte, Geschenke oder kommerzielle Zwecke – unsere Plattform bietet unendliche kreative Möglichkeiten!</p>
+      </div>
+      <div class="customer-image">
+        <img src="https://res.cloudinary.com/dntk0kj6v/image/upload/v1751544000/Delivery_Icon.png" alt="Lieferung Icon">
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <div id="site-footer"></div>
+
+  <!-- Fetch Header/Footer -->
+  <script>
+    fetch("header.html")
+      .then(res => res.text())
+      .then(data => document.getElementById("site-header").innerHTML = data);
+
+    fetch("footer.html")
+      .then(res => res.text())
+      .then(data => document.getElementById("site-footer").innerHTML = data);
+  </script>
+
+</body>
+</html>
+
 
