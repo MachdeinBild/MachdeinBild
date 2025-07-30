@@ -5,7 +5,7 @@
     </div>
     <nav>
       <a href="index.html">Startseite</a>
-      <a href="about.html">Über Uns</a>
+      <a href="about.html">Über&nbsp;Uns</a> <!-- verhindert Umbruch -->
       <a href="shop.html">Shop</a>
       <a href="gallery.html">Galerie</a>
       <a href="contact.html">Kontakt</a>
@@ -29,17 +29,23 @@
     position: sticky;
     top: 0;
     z-index: 1000;
-    transition: all 0.3s ease;
   }
 
   .header-container {
     max-width: 1200px;
     margin: 0 auto;
     padding: 15px 20px;
-    display: grid;
-    grid-template-columns: auto 1fr; /* Logo links, Navigation mittig */
+    display: flex;
     align-items: center;
+    justify-content: center; /* Für zentrierte Navigation */
     position: relative;
+  }
+
+  .logo {
+    position: absolute;
+    left: 20px; /* Logo ganz links */
+    top: 50%;
+    transform: translateY(-50%);
   }
 
   .logo img {
@@ -48,12 +54,10 @@
   }
 
   nav {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%); /* Zentriert Navigation */
     display: flex;
     gap: 25px;
     align-items: center;
+    white-space: nowrap; /* Kein Umbruch bei "Über Uns" */
   }
 
   nav a {
@@ -68,7 +72,7 @@
     color: #0078d4;
   }
 
-  /* Scroll Animation */
+  /* Scroll Effekt */
   .shrink .logo img {
     height: 60px;
   }
@@ -88,6 +92,7 @@
     }
   });
 </script>
+
 
 
 
