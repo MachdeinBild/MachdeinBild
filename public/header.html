@@ -3,15 +3,17 @@
     <div class="logo">
       <img src="https://res.cloudinary.com/dntk0kj6v/image/upload/v1750767227/Logo1_qdtgt9.png" alt="MachDeinBild Logo">
     </div>
-    <nav>
-      <a href="index.html">Startseite</a>
-      <a href="about.html">Über&nbsp;Uns</a> <!-- verhindert Umbruch -->
-      <a href="shop.html">Shop</a>
-      <a href="gallery.html">Galerie</a>
-      <a href="contact.html">Kontakt</a>
-      <a href="faq.html">FAQ</a>
-      <a href="imprint.html">Impressum</a>
-    </nav>
+    <div class="nav-wrapper">
+      <nav>
+        <a href="index.html">Startseite</a>
+        <a href="about.html">Über&nbsp;Uns</a>
+        <a href="shop.html">Shop</a>
+        <a href="gallery.html">Galerie</a>
+        <a href="contact.html">Kontakt</a>
+        <a href="faq.html">FAQ</a>
+        <a href="imprint.html">Impressum</a>
+      </nav>
+    </div>
   </div>
 </header>
 
@@ -34,18 +36,15 @@
   .header-container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 15px 20px;
+    height: 120px; /* Genug Platz fürs Logo */
     display: flex;
     align-items: center;
-    justify-content: center; /* Für zentrierte Navigation */
+    justify-content: space-between;
     position: relative;
   }
 
   .logo {
-    position: absolute;
-    left: 20px; /* Logo ganz links */
-    top: 50%;
-    transform: translateY(-50%);
+    flex: 0 0 auto;
   }
 
   .logo img {
@@ -53,11 +52,16 @@
     width: auto;
   }
 
+  .nav-wrapper {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
   nav {
     display: flex;
     gap: 25px;
-    align-items: center;
-    white-space: nowrap; /* Kein Umbruch bei "Über Uns" */
+    white-space: nowrap;
   }
 
   nav a {
@@ -78,6 +82,7 @@
   }
 
   .shrink {
+    height: 80px;
     box-shadow: 0 4px 15px rgba(0,0,0,0.1);
   }
 </style>
@@ -92,6 +97,7 @@
     }
   });
 </script>
+
 
 
 
