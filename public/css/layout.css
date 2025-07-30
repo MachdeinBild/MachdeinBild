@@ -14,6 +14,7 @@ html, body {
   min-height: 100vh;
 }
 
+
 /* === HEADER === */
 header {
   background: white;
@@ -25,8 +26,8 @@ header {
 }
 
 .header-container {
-  max-width: 1200px;   /* Einheitliche Breite für alle Seiten */
-  height: 120px;       /* Einheitliche Höhe */
+  max-width: 1200px;
+  height: 120px;
   margin: 0 auto;
   padding: 0 20px;
   display: flex;
@@ -38,20 +39,20 @@ header {
 }
 
 .logo img {
-  height: 100px;       /* Einheitliche Logo-Höhe */
+  height: 100px;
   width: auto;
 }
 
 nav {
   flex: 1;
   display: flex;
-  justify-content: center;  /* Navigation mittig */
+  justify-content: center;
   gap: 25px;
-  white-space: nowrap;      /* Kein Umbruch bei „Über Uns“ */
+  white-space: nowrap;
 }
 
 nav a {
-  font-size: 1.2rem;   /* Einheitliche Schriftgröße */
+  font-size: 1.2rem;
   font-weight: 600;
   color: #333;
   text-decoration: none;
@@ -62,14 +63,6 @@ nav a:hover {
   color: #0078d4;
 }
 
-/* Scroll-Effekt */
-.shrink .logo img {
-  height: 60px;
-}
-
-.shrink {
-  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-}
 
 /* === Footer === */
 footer, #site-footer {
