@@ -2,10 +2,18 @@
 <html lang="de">
 <head>
   <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Galerie – MachDeinBild</title>
+  
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  
+  <!-- Einheitliches Styling -->
+  <link rel="stylesheet" href="/css/layout.css">
+
   <style>
     body {
-      font-family: Arial, sans-serif;
+      font-family: 'Roboto', sans-serif;
       margin: 0;
       background: #f5f5f5;
     }
@@ -18,6 +26,8 @@
 
     h1 {
       text-align: center;
+      margin-bottom: 30px;
+      color: #333;
     }
 
     .grid {
@@ -41,15 +51,19 @@
 </head>
 <body>
 
+  <!-- Header -->
   <div id="site-header"></div>
 
+  <!-- Galerie -->
   <main>
     <h1>Galerie</h1>
     <div class="grid" id="gallery"></div>
   </main>
 
+  <!-- Footer -->
   <div id="site-footer"></div>
 
+  <!-- Scripts -->
   <script>
     // Galerie-Bilder laden
     fetch("/api/gallery")
@@ -80,4 +94,5 @@
 
 </body>
 </html>
+
 
