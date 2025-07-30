@@ -14,8 +14,65 @@ html, body {
   min-height: 100vh;
 }
 
-/* === Header & Footer === */
-header, footer, #site-footer {
+/* === HEADER === */
+header {
+  background: white;
+  width: 100%;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.header-container {
+  max-width: 1200px;   /* Einheitliche Breite für alle Seiten */
+  height: 120px;       /* Einheitliche Höhe */
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  flex: 0 0 auto;
+}
+
+.logo img {
+  height: 100px;       /* Einheitliche Logo-Höhe */
+  width: auto;
+}
+
+nav {
+  flex: 1;
+  display: flex;
+  justify-content: center;  /* Navigation mittig */
+  gap: 25px;
+  white-space: nowrap;      /* Kein Umbruch bei „Über Uns“ */
+}
+
+nav a {
+  font-size: 1.2rem;   /* Einheitliche Schriftgröße */
+  font-weight: 600;
+  color: #333;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+nav a:hover {
+  color: #0078d4;
+}
+
+/* Scroll-Effekt */
+.shrink .logo img {
+  height: 60px;
+}
+
+.shrink {
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+/* === Footer === */
+footer, #site-footer {
   background: #333;
   color: #fff;
   text-align: center;
@@ -143,3 +200,4 @@ select, input {
     max-width: 90%;
   }
 }
+
