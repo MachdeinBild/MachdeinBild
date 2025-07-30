@@ -4,7 +4,13 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Mach dein Bild</title>
+  
+  <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  
+  <!-- Einheitliches Styling -->
+  <link rel="stylesheet" href="/css/layout.css">
+
   <style>
     body {
       font-family: 'Roboto', sans-serif;
@@ -18,12 +24,6 @@
       margin: 40px auto;
       padding: 0 40px;
       text-align: center;
-    }
-
-    main h2 {
-      font-size: 2rem;
-      color: #333;
-      margin-bottom: 20px;
     }
 
     main p {
@@ -103,21 +103,15 @@
       border-radius: 8px;
       box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
     }
-
-    footer {
-      background-color: #333;
-      color: white;
-      text-align: center;
-      padding: 20px;
-    }
   </style>
 </head>
 <body>
 
+  <!-- Header -->
   <div id="site-header"></div>
 
+  <!-- Hauptinhalt -->
   <main>
-    
     <p>
       Willkommen bei <strong>MachDeinBild</strong> – der kreativen Plattform, auf der du deine eigenen einzigartigen Bilder mit nur wenigen Klicks erstellen kannst. Unsere fortschrittliche Technologie hilft dir dabei, deine Visionen in beeindruckende Kunstwerke zu verwandeln. <br><br>
       Wir verwandeln deine Textideen mit modernster Künstlicher Intelligenz in brillante Bilder — und drucken sie in höchster Qualität auf edle Materialien. So wird aus deiner Vision in Sekunden ein Kunstwerk, das gestochen scharf, farbtreu und langlebig an deiner Wand glänzt. Du brauchst keine Vorkenntnisse – nur deine Fantasie!
@@ -137,8 +131,10 @@
     <div class="track" id="index-gallery"></div>
   </div>
 
+  <!-- Footer -->
   <div id="site-footer"></div>
 
+  <!-- Scripts -->
   <script>
     // Header & Footer laden
     fetch("header.html")
@@ -199,6 +195,7 @@
 
 </body>
 </html>
+
 
 
 
